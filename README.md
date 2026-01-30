@@ -43,4 +43,5 @@ This is a conceptual project exploring what truly social AI could mean.
 
 ## License
 
-This work is licensed under [CC BY 4.0](LICENSE)
+This work is licensed under [AGPLv3](LICENSE)
+
