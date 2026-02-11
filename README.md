@@ -1,5 +1,8 @@
 # Social AI: Re-humanizing Humanoids
 
+> [!NOTE]
+> **TLDR:** Architecture transforming AI from tool of isolation into social infrastructure: detecting resonances in private conversations to facilitate intellectual encounters impossible otherwise. This text first reframes AI philosophically before technical design. Implementations to follow.
+
 **Transforming AI from anonymous content dispensers into interfaces that connect humans to each other**
 
 > "My AI understands me better than anyone else!" — but what if that understanding could lead you to actual people whose thinking resonates with yours?
@@ -44,4 +47,3 @@ This is a conceptual project exploring what truly social AI could mean.
 ## License
 
 This work is licensed under [AGPLv3](LICENSE)
-
