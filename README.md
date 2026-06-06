@@ -7,7 +7,7 @@
 
 > "My AI understands me better than anyone else!" — but what if that understanding could lead you to actual people whose thinking resonates with yours?
 
-📄 [Full Manifesto](https://periggouanvic.github.io/social-ai/) 
+📄 [Full Manifesto](https://periggouanvic.github.io/social-AI/) 
 
 ## What is this?
 
