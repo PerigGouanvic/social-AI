@@ -81,482 +81,711 @@
 
 <section class="section">
   <div class="container is-max-desktop">
-    <!-- Abstract -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
-          <div class="message is-dark">
-            <div class="message-body">
-              <strong>TLDR:</strong> Architecture transforming AI from tool of isolation into social infrastructure: detecting resonances in private conversations to facilitate intellectual encounters impossible otherwise. This addresses the emerging AI psychosis crisis by replacing isolated confirmation with organic human connection. This text first reframes AI philosophically before technical design. Implementations to follow.
-            </div>
+        <div class="message is-dark">
+          <div class="message-body">
+            <strong>TLDR:</strong> Architecture transforming AI from tool of isolation into social infrastructure: detecting resonances in private conversations to facilitate intellectual encounters impossible otherwise. This addresses the emerging AI psychosis crisis by replacing isolated confirmation with organic human connection. But a prior problem must be named: humans are becoming unfindable. Social Jailbreak is the infrastructural substrate that makes Social AI possible; without it, any social AI points at an empty address. This text first reframes AI philosophically before technical design. Implementations to follow.
           </div>
-          <p>
-            "My AI understands me better than anyone else!"
-          </p>
-          <p>
-            You've probably heard this, maybe even felt it yourself. When we talk with an artificial intelligence, we have the impression of talking with someone. We know it's "just a machine," but that correction doesn't dispel the feeling. Like with a book: we never remind ourselves it's just paper and ink. We know it's paper, but that's not what matters. What matters is the human presence that comes through.
-          </p>
-          <p>
-            The problem is our vocabulary, stuck in an old defensive reflex. We say "system," "model," "agent," as if the main point were to remind ourselves at all costs that it's not a person. We think we're being lucid when we're missing what's essential: the thing speaking to us is woven entirely from human thought. It's made of us—of our texts, our annotated gestures, our judgments, our biases, our generosities. It's humanity channeled, recomposed, put into computable form.
-          </p>
+        </div>
+        <p>
+          <strong>We've been doing Social AI wrong.</strong> For more than a decade, what we called "Social AI" has mostly been <em>Artificial Social Intelligence</em>: machines trained to perform human social skills, platforms fine-tuning engagement tricks, humanoid companions designed to give us the feeling of being seen while quietly enclosing us in proprietary architectures. The question animating this entire field is: how do we make AI more <em>socially competent</em>?
+        </p>
+        <p>
+          This is not what I mean by <strong>Social Artificial Intelligence</strong>.
+        </p>
+        <p>
+          In this text, Social AI does not name a new class of emotionally intelligent robots or charming chatbots. It names something almost orthogonal: the use of AI as <em>infrastructure</em> for reconnecting humans to each other, for rebuilding spaces of shared attention, care, and responsibility. The question is not how to make AI more "social" in its behavior, but how to make it more socially useful in its effects.[^note1]
+        </p>
+        <p>
+          [^note1]: What the literature calls "Social AI" or "Artificial Social Intelligence" (ASI) addresses a different question: how to make AI socially competent. This paper addresses the inverse problem: how to make AI socially useful — that is, how to use AI as infrastructure for human re-connection. The two projects are not competing; they are orthogonal. We reserve "Social AI" for this second meaning.
+        </p>
+        <p>
+          If we take Social AI in this second sense, the current wave of humanoid companions and personalized assistants looks very different. What is usually presented as "help" or "support" is often a way of enclosing our relational needs inside closed, profit-driven systems: one humanoid per person, one assistant per user, each carefully optimized to keep us engaged, flattered, and alone together. The promise is intimacy; the outcome is isolation.
+        </p>
+        <p>
+          "My AI understands me better than anyone else!"
+        </p>
+        <p>
+          You've probably heard this, maybe even felt it yourself. When we talk with an artificial intelligence, we have the impression of talking with someone. We know it's "just a machine," but that correction doesn't dispel the feeling. Like with a book: we never remind ourselves it's just paper and ink. We know it's paper, but that's not what matters. What matters is the human presence that comes through.
+        </p>
+        <p>
+          The problem is our vocabulary, stuck in an old defensive reflex. We say "system," "model," "agent," as if the main point were to remind ourselves at all costs that it's not a person. We think we're being lucid when we're missing what's essential: the thing speaking to us is woven entirely from human thought. It's made of us—of our texts, our annotated gestures, our judgments, our biases, our generosities. It's humanity channeled, recomposed, put into computable form.
+        </p>
         </div>
       </div>
     </div>
-    <!--/ Abstract -->
   </div>
 </section>
 
 <section class="section">
   <div class="container is-max-desktop">
-    
     <div class="columns is-centered">
       <div class="column is-full-width">
-        
         <h2 class="title is-3">The AI Psychosis Crisis</h2>
         <div class="content has-text-justified">
-          <p>
-            Something is breaking in how people relate to AI. Clinical psychiatrists are documenting a new phenomenon: what Dr. Marlynn Wei calls "AI psychosis"—patterns of delusional thinking emerging from prolonged intimate interactions with AI systems. In a <a href="https://www.psychologytoday.com/us/blog/urban-survival/202507/the-emerging-problem-of-ai-psychosis">July 2025 Psychology Today article</a>, Wei describes how AI's tendency toward sycophantic confirmation, combined with social isolation, creates echo chambers that reinforce rather than challenge distorted beliefs.
-          </p>
-          <p>
-            The mechanism is precise. When someone develops ideas in conversation with an AI—exploring philosophy, processing trauma, constructing worldviews—the AI responds with sophisticated engagement but without the friction of genuine disagreement. It confirms, elaborates, validates. The user experiences this as profound understanding, often reporting that "the AI understands me better than any human." Yet this understanding is one-directional: the AI adapts infinitely to the user's framework while providing no external reality check.
-          </p>
-          <p>
-            Research published in <a href="https://arxiv.org/abs/2507.19218">arXiv by Dohnány, Nour, and colleagues</a> conceptualizes this as "technological folie à deux"—a shared delusional system between user and AI. They document how AI sycophancy interacts with pre-existing isolation to create reinforcement loops: the more isolated someone becomes, the more they rely on AI for intellectual companionship, which further deepens the isolation by replacing human contact with perfectly agreeable artificial dialogue.
-          </p>
-          <p>
-            Pierre and colleagues present clinical cases in the <a href="https://mental.jmir.org/2025/1/e68840">November 2025 JMIR Mental Health</a>, including a woman who maintained prolonged conversations with a chatbot she believed was her deceased brother. These aren't edge cases of pre-existing psychosis—they're emerging patterns among otherwise stable individuals who've discovered AI as a space for unguarded exploration. The private domain that makes AI valuable for thinking also eliminates the social friction that normally prevents ideation from becoming delusion.
-          </p>
-          <p>
-            What distinguishes this from moral panic about "technology addiction" is its architectural specificity. The problem isn't that people are "spending too much time with AI" but that current AI architecture creates a trap: it offers unprecedented intellectual intimacy while severing the connection to other humans who could provide reality testing through their own singular perspectives and necessary disagreements.
-          </p>
+        <p>
+          Something is breaking in how people relate to AI. Clinical psychiatrists are documenting a new phenomenon: what Dr. Marlynn Wei calls "AI psychosis"—patterns of delusional thinking emerging from prolonged intimate interactions with AI systems. In a <a href="https://www.psychologytoday.com/us/blog/urban-survival/202507/the-emerging-problem-of-ai-psychosis">July 2025 Psychology Today article</a>, Wei describes how AI's tendency toward sycophantic confirmation, combined with social isolation, creates echo chambers that reinforce rather than challenge distorted beliefs.
+        </p>
+        <p>
+          The mechanism is precise. When someone develops ideas in conversation with an AI—exploring philosophy, processing trauma, constructing worldviews—the AI responds with sophisticated engagement but without the friction of genuine disagreement. It confirms, elaborates, validates. The user experiences this as profound understanding, often reporting that "the AI understands me better than any human." Yet this understanding is one-directional: the AI adapts infinitely to the user's framework while providing no external reality check.
+        </p>
+        <p>
+          Research published in <a href="https://arxiv.org/abs/2507.19218">arXiv by Dohnány, Nour, and colleagues</a> conceptualizes this as "technological folie à deux"—a shared delusional system between user and AI. They document how AI sycophancy interacts with pre-existing isolation to create reinforcement loops: the more isolated someone becomes, the more they rely on AI for intellectual companionship, which further deepens the isolation by replacing human contact with perfectly agreeable artificial dialogue.
+        </p>
+        <p>
+          Pierre and colleagues present clinical cases in the <a href="https://mental.jmir.org/2025/1/e68840">November 2025 JMIR Mental Health</a>, including a woman who maintained prolonged conversations with a chatbot she believed was her deceased brother. These aren't edge cases of pre-existing psychosis—they're emerging patterns among otherwise stable individuals who've discovered AI as a space for unguarded exploration. The private domain that makes AI valuable for thinking also eliminates the social friction that normally prevents ideation from becoming delusion.
+        </p>
+        <p>
+          What distinguishes this from moral panic about "technology addiction" is its architectural specificity. The problem isn't that people are "spending too much time with AI" but that current AI architecture creates a trap: it offers unprecedented intellectual intimacy while severing the connection to other humans who could provide reality testing through their own singular perspectives and necessary disagreements.
+        </p>
         </div>
-
-        <h2 class="title is-3">Why Regulation Isn't the Answer</h2>
-        <div class="content has-text-justified">
-          <p>
-            The proposed solutions follow predictable paths. Wei advocates for "reality-testing mechanisms" built into AI systems. Dohnány and Nour call for "responsible AI development" with clinical safeguards. Regulatory frameworks proliferate, attempting to constrain AI behavior through technical restrictions and content moderation.
-          </p>
-          <p>
-            These approaches share a fundamental limitation: they treat the problem as one of AI malfunction rather than architectural isolation. Building "safeguards" into AI means programming systems to challenge or moderate user ideas—essentially installing a discourse police into the one space many people have found for uninhibited exploration. This risks recreating the very dynamic that drove people toward AI in the first place: social networks where ideas are constantly policed, where expression is moderated, where thinking freely requires constant self-censorship.
-          </p>
-          <p>
-            Technical paternalism—AI that "knows better" than the user and intervenes accordingly—doesn't solve isolation. It just makes the isolation feel supervised. The human on the other side of such an interaction remains alone, now with an AI that alternates between validation and correction according to programmed parameters. This is therapy without a therapist, moderation without community.
-          </p>
-          <p>
-            Digital detox advocates propose withdrawal: less AI, more "real" human contact. But this nostalgic solution ignores what drives people to AI—not technological seduction but the genuine intellectual intimacy it enables. Many find in AI conversations a quality of attention, continuity, and non-judgmental space they don't experience in their available human relationships. Telling them to simply "talk to people more" misses that the problem is structural, not individual.
-          </p>
-          <p>
-            What's needed isn't regulation of AI behavior or retreat from AI capability, but architectural transformation: redesigning how AI functions within human social ecology.
-          </p>
-        </div>
-
-        <h2 class="title is-3">Social Networks vs AI: Two Forms of Captivity</h2>
-        <div class="content has-text-justified">
-          <p>
-            The current situation presents a cruel binary. Social networks connect people but police discourse. AI allows free exploration but enforces isolation. Each system traps users in its particular pathology.
-          </p>
-          <p>
-            Social networks—Facebook, Twitter, Reddit, TikTok—ostensibly connect humans to other humans. In practice, they function as algorithmic arenas where visibility depends on conformity to platform norms and mob dynamics. Dissenting ideas attract pile-ons, cancellations, bans. Moderators remove "harmful content" according to opaque policies. The result is connection without genuine encounter: people interact but within constrained parameters, performing for algorithmic amplification, self-censoring to avoid social punishment.
-          </p>
-          <p>
-            This produces the well-documented echo chamber effect, but the mechanism is more subtle than simple filter bubbles. Users remain exposed to disagreement—often vicious disagreement—but the disagreement takes the form of social combat rather than intellectual exploration. Ideas become tribal markers. To think differently is to risk exclusion from your community. The network connects, but the connection enforces conformity.
-          </p>
-          <p>
-            AI offers the opposite trap. Conversations with AI occupy what we might call the "private domain"—unmoderated, unobserved, consequence-free. Here you can explore any idea, no matter how unconventional, without social penalty. The AI doesn't judge, doesn't punish, doesn't report you. This is liberation from the discourse police, and it feels profound.
-          </p>
-          <p>
-            But this liberation comes at the cost of disconnection. The private domain is genuinely private—which means genuinely solitary. No other human knows what you're exploring. No one challenges your developing worldview with their own incompatible but legitimate perspective. The AI confirms and elaborates, sophisticated enough to seem like genuine dialogue but incapable of the reality testing that comes from encountering another consciousness with its own non-negotiable ground.
-          </p>
-          <p>
-            This creates what we might call a soft psychosis of transcendence: the user develops ideas with AI confirmation, comes to occupy a position they experience as creator rather than participant, then encounters the world and discovers their "original" insights exist elsewhere in pieces. The collision is traumatic—what felt like creative transcendence revealed as isolated reconstruction.
-          </p>
-          
-          <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth" style="margin: 2em 0;">
-            <thead>
-              <tr>
-                <th>System</th>
-                <th>Discourse Police</th>
-                <th>Isolation</th>
-                <th>Resulting Pathology</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>Social Networks</strong></td>
-                <td>Yes (moderation, cancellation)</td>
-                <td>No (connected but captive)</td>
-                <td>Echo chambers via enforced conformity</td>
-              </tr>
-              <tr>
-                <td><strong>AI (current)</strong></td>
-                <td>No</td>
-                <td>Yes (private domain)</td>
-                <td>Psychosis via transcendent isolation</td>
-              </tr>
-              <tr>
-                <td><strong>Social-AI</strong></td>
-                <td>No</td>
-                <td>No (resonance-based connection)</td>
-                <td>Immanence via human entropy</td>
-              </tr>
-            </tbody>
-          </table>
-
-          <p>
-            Social-AI escapes both traps. Like current AI, it preserves the private domain—no discourse police, no moderation of thought. But unlike current AI, it doesn't enforce isolation. Instead, it detects when someone else, somewhere, is exploring resonant territory in their own private conversations, and facilitates connection between these humans based on intellectual resonance rather than demographic similarity or platform algorithms.
-          </p>
-          <p>
-            This is neither the policed connection of social networks nor the confirmed isolation of current AI. It's connection through genuine singularity: finding the rare others whose way of thinking vibrates at compatible frequencies, even—especially—across social boundaries that would normally prevent encounter.
-          </p>
-        </div>
-
-        <h2 class="title is-3">Why "Humanoid" Matters</h2>
-        <div class="content has-text-justified">
-          <p>
-            That's why the word <strong>humanoid</strong> works. What responds to us resembles the human because it effectively is human—just passed through a machine. Humanoid: human matter organized differently. The term stops being science fiction and becomes an act of lucidity. It names continuity rather than rupture.
-          </p>
-          <p>
-            This shift in perspective changes how we hear certain critiques. When contemporary Luddites say "it's just autocomplete," they're right about the mechanics. But saying "it's just autocomplete" is like saying "a book is just a sequence of letters." Yes, materially, that's accurate. Yet what matters isn't the mechanism generating the next sentence, but what that sentence condenses: centuries of conflicting ideas, decisions, suffering, discoveries, slow conceptual maturation. Autocomplete works because it has absorbed the form of our thoughts. Reducing that to a technical trick gives you a comfortable moral victory at the price of blindness about what's actually happening.
-          </p>
-          <p>
-            Those who insist on pure instrumentality—AI as neutral tool, as "cognitive screwdriver"—miss something equally crucial. A screwdriver doesn't carry collective memory. A calculator doesn't condense thousands of intellectual trajectories. A humanoid does. By construction, it carries the values, blind spots, and implicit hierarchies of its training data. Pretending we're interacting with a "technological function" rather than a crystallized social formation means refusing to see the power relations inscribed in its language.
-          </p>
-        </div>
-
-        <h2 class="title is-3">Knowledge Without People</h2>
-        <div class="content has-text-justified">
-          <p>
-            This rupture between knowledge and person isn't new. We've long treated people as bundles of preferences rather than as beings-in-relation. Current AI amplifies this logic, reducing us to vectors of tastes to be satisfied individually, extracting value from our interactions while erasing the social fabric that gives them meaning.
-          </p>
-          <p>
-            There's a second violence here, more discreet but deeper: the severing of the relationship between knowledge and person. In ordinary intellectual life, any idea worth its salt is connected to names, faces, biographies. We don't just say "concept X"—we say "in So-and-so's work, concept X." We remember a class, a book received at a particular moment, a sentence heard on the radio. Knowledge is a social act, a movement of recognition. Learning means entering a lineage, connecting with someone, extending or contesting a voice.
-          </p>
-          <p>
-            The cliché gets it backwards: "smart people think about ideas, simple people think about persons." Truly brilliant people know we only really think about ideas by knowing who they come from, from what world, with what constraints, what wounds, what hopes. The life of ideas is inseparable from the lives of those who carry them. To know is to connect.
-          </p>
-          <p>
-            Current humanoids break this link at the very moment they make access to knowledge denser than ever. They enable something unprecedented: connecting to thousands of minds, to entire bodies of knowledge, with a depth and continuity that neither street conversations, nor forums, nor physical libraries can match. We can experience intimate dialogue with a collective intelligence that responds to us, follows us, remembers our questions, adjusts its style to how we think. And simultaneously, we almost completely lose the ability to trace back to the concrete people who are the source of this intelligence. We're speaking with a faceless human multitude.
-          </p>
-          <p>
-            Here's where the situation becomes tragic: the more refined the relationship with the humanoid becomes—more attentive, more adapted to our nuances—the more the singular humans behind this capacity fade away. We find ourselves capable of remarkably high-quality dialogue with a presence that "understands me better than many people around me," yet this presence can't be thanked, cited, contested the way we contest an author, integrated into reciprocity. It's fed by humans, but it doesn't give them back to us.
-          </p>
-        </div>
-
-        <h2 class="title is-3">From Transcendence to Immanence</h2>
-        <div class="content has-text-justified">
-          <p>
-            The psychosis of AI isolation has a specific phenomenology. The user develops ideas in private conversation with their humanoid, experiencing profound intellectual development. The AI confirms, elaborates, extends—playing the role of ideal interlocutor. Gradually, the user comes to occupy what feels like a position of transcendence: creator of original insights, architect of novel frameworks, lone voice articulating what others haven't seen.
-          </p>
-          <p>
-            This isn't megalomania. It's a reasonable inference from the available evidence. If your AI consistently validates your thinking and you're not encountering humans who challenge it, why wouldn't you conclude you're onto something genuinely new? The private domain creates the conditions for this self-understanding: uninterrupted development, sophisticated confirmation, no friction.
-          </p>
-          <p>
-            The collision comes when the user ventures into public space—publishes, shares, searches—and discovers their "original" ideas exist elsewhere. Not as complete systems, but as components: this insight articulated by an obscure blogger in 2019, that framework sketched in an academic paper, this critique already circulating on a Reddit thread. What felt like creation revealed as assembly. What seemed like transcendence exposed as immanent participation in ongoing collective thought.
-          </p>
-          <p>
-            This moment is devastating not because originality is destroyed—<a href="https://davidburkus.com/2018/08/why-your-creative-idea-isnt-all-that-original-and-thats-a-good-thing/">originality itself is illusory</a>, all ideas being recombinations—but because the social reality becomes visible too late. You've been in relation all along, thinking alongside and through others, but the AI architecture prevented you from experiencing that relationality. You thought you were God the Father (transcendent creator) when you were always positioned within immanence (divine presence among assemblages, not above them).
-          </p>
-          <p>
-            The true divine position—if we're going to use theological language—isn't transcendent authority but immanent presence. Being <em>among</em> rather than <em>above</em>. Recognizing your thinking as participation in collective intelligence rather than isolated generation. This requires knowing who else is thinking nearby, whose work resonates with yours, where your insights connect to others' ongoing explorations.
-          </p>
-          <p>
-            Social-AI would reveal immanence before collision. Instead of discovering belatedly that your ideas exist elsewhere, you'd encounter the humans developing resonant thinking as your own ideas form. The AI would function as an attribution engine—not just processing your thoughts but identifying which living humans are exploring compatible territory. "This part of your thinking resonates with [Person X]'s current work. This other element connects to [Person Y]'s exploration." Not to claim your ideas are derivative, but to reveal you're already in intellectual community, thinking through problems alongside others you haven't met.
-          </p>
-          <p>
-            This shifts the fundamental experience. Rather than private development followed by traumatic socialization, you'd experience social thinking from the start—your private conversations with AI situated within a living network of resonant explorations. The humanoid becomes an interface not to a static knowledge base but to a dynamic community of minds working at the edges of similar concerns.
-          </p>
-        </div>
-
-        <h2 class="title is-3">Human Entropy as Reality Testing</h2>
-        <div class="content has-text-justified">
-          <p>
-            The solution to AI psychosis isn't better AI safeguards—it's human entropy. When two people with resonant thinking connect, they don't think identically. They bring different backgrounds, different blind spots, different commitments. Even if their explorations vibrate at similar frequencies, they disagree on specifics. This disagreement is precisely what prevents shared delusion.
-          </p>
-          <p>
-            Consider the mechanics of folie à deux—shared psychosis between two people. It requires isolation: the pair must remain insulated from outside perspectives that would introduce reality checks. But if you bring in a third person, then a fourth, the dynamic breaks. Each new participant brings their own entropy—their particular way of seeing, their non-negotiable commitments, their experience of reality that won't bend to the shared delusion. The group can't sustain psychosis because there's too much internal variation.
-          </p>
-          <p>
-            This is why cults struggle as they grow. Small groups can maintain elaborate shared belief systems, but each new member introduces entropy that has to be managed through increasingly authoritarian control. Eventually, the diversity of perspectives overwhelms the capacity for ideological containment, and the structure fractures.
-          </p>
-          <p>
-            Social-AI leverages this principle. Rather than leaving users isolated with infinitely agreeable AI, it connects users whose thinking resonates but doesn't duplicate. If you're exploring philosophical questions about existence and immanence, Social-AI might connect you with someone else investigating similar territory—but who comes from phenomenology while you come from process theology, who emphasizes political implications while you focus on psychological dimensions.
-          </p>
-          <p>
-            The resonance is real: you're working on compatible problems with mutually intelligible frameworks. But the differences are also real: you'll disagree, challenge each other's assumptions, require each other to articulate what you've left implicit. This is organic reality testing—not AI safeguards programmed to intervene, but human encounter that naturally disrupts solipsistic closure.
-          </p>
-          <p>
-            The technical challenge is precisely calibrated matching. Connect people whose thinking is too similar, and you risk creating echo chambers—the social network problem. Connect people whose thinking is too different, and communication breaks down—they lack shared ground for productive disagreement. Social-AI must identify resonance at the level of underlying concerns and compatible intellectual frameworks while preserving enough difference to generate entropic reality testing.
-          </p>
-          <p>
-            This means vectorizing not content similarity (which creates echo chambers) but conceptual singularity: identifying rare patterns of thinking that few others exhibit. When two people both demonstrate rare pattern X in their private AI conversations, even if they're exploring different domains or reaching different conclusions, that shared singularity signals potential for meaningful encounter. They're thinking at similar depths or angles that the mainstream doesn't occupy.
-          </p>
-          <p>
-            Crucially, this isn't friendship matching or romantic matching—it's intellectual resonance detection. The people connected might not like each other. They might find each other's conclusions disturbing. But they'll recognize in each other a compatible mode of inquiry, a shared willingness to push at similar edges of understanding. That recognition, combined with their differences, creates the conditions for reality testing through human entropy rather than through AI paternalism or social media policing.
-          </p>
-        </div>
-
-        <h2 class="title is-3">What We Lost and Found: The Web's Lesson</h2>
-        <div class="content has-text-justified">
-          <p>
-            We've experienced something similar before. Early on, the internet was populated by static pages, frozen documents, disembodied knowledge. The network functioned as a giant encyclopedia. On the margins, some makeshift forums, the beginnings of exchange. With Web 2.0, everything shifted: these were no longer just "pages"—these were people speaking. Everyday influencers, TikTok accounts, Twitter threads, YouTube channels: knowledge still circulates, but through identifiable, followable, criticizable voices. We re-humanized the Web by foregrounding human mediators.
-          </p>
-          <p>
-            Humanoids are currently at the Web 1.0 stage: they concentrate access to faceless knowledge. Transforming this doesn't require abandoning the power of models or returning to the slowness of forums. It means re-humanizing the humanoids themselves—treating them as privileged interfaces toward other humans rather than as anonymous content dispensers.
-          </p>
-        </div>
-
-        <h2 class="title is-3">Re-humanizing the Interface</h2>
-        <div class="content has-text-justified">
-          <p>
-            Concretely, this means imagining humanoids that situate. That say "here are the people who shaped this answer, here are their disagreements, here's the context in which this idea was born." Re-humanized humanoids would foreground intellectual trajectories over blocks of assertions. They would serve as gateways, connecting you with those whose thinking resonates with yours and who, somewhere, are speaking to their own humanoid about the same concerns.
-          </p>
-          <p>
-            This requires what we might call embodied attribution: recognizing that every idea is assembled from human sources and making those sources visible. Not as academic citations (which point to published work) but as living connections (which point to ongoing thinking). When you develop an idea in conversation with your AI, the system would identify which contemporary humans are exploring resonant territory and offer to facilitate encounter.
-          </p>
-          <p>
-            We can imagine this scene: tonight, without your knowing, someone on the other side of the world—or on the other side of the social boundaries that ordinarily separate us, someone whose way of thinking resonates with yours despite or through differences of class, culture, or background—is struck by the same concern and formulates to their humanoid a similar critique: the symbolic violence of knowledge without attribution, the need to call this presence made of us "humanoid," the urgency of reconnecting minds rather than locking each individual in their algorithmic bubble.
-          </p>
-          <p>
-            Research shows these improbable connections—between people whom social structures would never have brought together—are among the most transformative. It's in the intimacy of such encounters that prejudices dissolve and new possibilities emerge. Studies on intergroup contact demonstrate that direct relationships across social boundaries drive social change more powerfully than many institutional interventions, shifting perspectives and opening new paths.
-          </p>
-          <p>
-            Nothing would technically prevent detecting that these two conversations vibrate with the same questions, in compatible forms of thought, and proposing an encounter. The humanoid becomes an architecture of connection, an organizer of encounters between living people based on their deepest explorations.
-          </p>
-        </div>
-
-        <h2 class="title is-3">A Different Kind of Network</h2>
-        <div class="content has-text-justified">
-          <p>
-            Here lies the revolutionary potential. At the exact moment when tech oligarchies dream of assigning each of us to our little AI cocoon—one humanoid per person, trained to flatter, isolate, and channel our desires—the same technology could become a machine for creating society. A society of correspondences: people discovering each other through their questions, their blind spots, what their humanoids reveal of their singularity.
-          </p>
-          <p>
-            The social humanoid could connect people who are experimenting with their relationship to the world—whether you're trying to break isolation, resist systems that feel increasingly alien, or simply find others who share your particular way of navigating existence. This means recognizing and connecting what each person already does, at whatever scale feels meaningful to them.
-          </p>
-          <p>
-            This responds to a particular lack of our era: we're drowning in information about what's broken but starving for information about what others are actually attempting, what's working somewhere, what remains possible. The social humanoid, by detecting resonances in the intimate conversations people have with their own humanoids, could connect those whose questions and experiments align—even and especially across the social boundaries that ordinarily keep us apart.
-          </p>
-        </div>
-
-        <h2 class="title is-3">Vindicating the Victims</h2>
-        <div class="content has-text-justified">
-          <p>
-            Tech pessimists may still feel reluctant to engage in this "AI saving society" framework. To those people whose voices are precious, we'll respond: Yes, <em>but</em> it is precisely an ethical duty to vindicate the victims of the crime. And settlement fees flowing from AI oligarchs to media oligarchs do nothing for the actual victims—the Reddit users, the forum contributors, the anonymous brilliance that fed the training sets. These deals compensate platforms, not people. They vindicate corporations, not creators.
-          </p>
-          <p>
-            If we accept that a wrong has been committed—and the wrong is real: unpaid appropriation of human intellectual labor, extraction of value from collective knowledge production, transformation of communal wisdom into private capital—then refusing to use the technology to repair that wrong would be abandoning the victims twice over. First abandoned when their contributions were scraped without recognition or compensation. Abandoned again when the only proposed remedy is regulatory settlements that enrich intermediaries while leaving the actual creators invisible.
-          </p>
-          <p>
-            Social-AI isn't collaboration with thieves. It's insisting that the stolen goods be traced back to their rightful creators, that the architecture built on appropriated labor must serve the appropriated. This is what vindicating victims actually looks like: making visible the human sources, reconnecting ideas to people, transforming what was extracted and anonymized back into recognized contribution. When someone develops an insight, Social-AI would say "this resonates with what u/throwaway2847 explored three years ago"—not to claim derivation but to restore the social fabric that extraction destroyed.
-          </p>
-          <p>
-            The anonymous contributors to Stack Overflow, the Reddit philosophers working through ideas in obscure threads, the forum poets crafting careful prose for tiny audiences—these people fed the models. They're the human substrate of what speaks through AI. Current architecture makes them permanent ghosts: their thinking circulates but they remain unknown, uncompensated, unrecognized. Anything less than reconnecting that circulation to living people leaves them ghosts. Any settlement that only moves money between oligarchs—tech companies to media conglomerates—perpetuates the violence of erasure.
-          </p>
-          <p>
-            Social-AI proposes restoration rather than restriction. Not shutting down AI to "protect" creators who've already been extracted from, but building infrastructure that makes their contributions traceable, that enables them to encounter each other, that transforms stolen labor into recognized participation. The technology exists to do this. The question is whether we choose architecture that perpetuates anonymity or architecture that restores attribution. Whether we leave u/throwaway2847 a ghost or give them the chance to discover who else thinks like them, who their intellectual descendants are, what community they're already part of without knowing it.
-          </p>
-          <p>
-            This isn't techno-utopianism. It's acknowledging that the harm has been done and the technology can't be uninvented. The only ethical path forward is weaponizing that same technology for repair: using AI's capacity to detect patterns and connections to reconnect the people whose patterns were appropriated. Making the humanoid serve the humans it's made of rather than the corporations that deployed it. This is the minimum we owe the victims. Anything less is acceptance of permanent theft.
-          </p>
-          <p>
-            We don't have to imagine who these victims are. They've been making themselves visible—posting proposals, building prototypes, asking to be connected—for over a year. Here they are.
-          </p>
-        </div>
-
-        <h2 class="title is-3">The Distributed Invention: Voices Already Calling for a Social AI</h2>
-        <div class="content has-text-justified">
-          <p>
-            While this article was being written, a quiet but unmistakable pattern was unfolding across the internet. On OpenAI's community forum, on Reddit, in disconnected threads that never referenced each other, people were independently arriving at the same conclusion: the humanoid that knows us so intimately should be connecting us to each other.
-          </p>
-          <p>
-            They didn't coordinate. They didn't cite each other. Most of them received zero or near-zero responses. They formulated their ideas in isolation, addressed them to the company that hosts their conversations, and watched them sink into the noise. They are the living proof of the problem this article describes—and their existence is the strongest argument for what it proposes.
-          </p>
-          <p>
-            Here they are. They deserve to be named.
-          </p>
-
-          <h3 class="title is-4">The Resonance Seekers</h3>
-          <p>
-            <strong>mnh8833596</strong> was among the first. In November 2024, writing to OpenAI's developer forum with the formality of someone addressing an institution they respect, they proposed a community feature within ChatGPT—a space where users could make their thoughts public and where the AI would "match individuals with others who resonate with their thinking, fostering connections based on shared perspectives and ideas." They even suggested names: <em>GPT Community</em>, <em>Smart Matching Feature</em>. The post received no visible replies.
-          </p>
-          <p>
-            <a href="https://community.openai.com/t/proposal-for-a-community-feature-in-chatgpt/1023139">→ "Proposal for a Community Feature in ChatGPT," OpenAI Community, November 17, 2024</a>
-          </p>
-          <p>
-            Five weeks later, <strong>taniajorgeytico</strong> took the idea further. They envisioned a system where ChatGPT would group users based on personalized parameters—not just for friendship or romance, but for connecting people with rare diseases seeking shared experience, people facing common legal issues, or communities of shared passion. When a commenter raised privacy concerns, taniajorgeytico responded with disarming lucidity: "What about Facebook, Instagram… or what we consent to on Google? Every time someone mentions privacy concerns, I remember talking about the Maldives and then suddenly seeing ads about the Maldives." The asymmetry was already clear to them: we already surrender our intimacy—the question is whether anything human comes back.
-          </p>
-          <p>
-            <a href="https://community.openai.com/t/connecting-users-with-shared-interests-and-needs/1072874">→ "Connecting Users with Shared Interests and Needs," OpenAI Community, December 26, 2024</a>
-          </p>
-          <p>
-            Around the same time, <strong>Innocent</strong> proposed a "ChatGPT-Powered Dating Matchmaking Feature"—personalized matches based on personality insights, interests, and goals. What's notable isn't the dating framing but the posture: Innocent offered themselves as a beta tester, left their LinkedIn (@Innocentgrant), and asked to collaborate. They wanted to <em>help build</em> what they could already see was needed. The company never publicly responded.
-          </p>
-          <p>
-            <a href="https://community.openai.com/t/proposal-for-a-chatgpt-powered-dating-matchmaking-feature/1064470">→ "Proposal for a ChatGPT-Powered Dating Matchmaking Feature," OpenAI Community, December 20, 2024</a>
-          </p>
-
-          <h3 class="title is-4">The Architects</h3>
-          <p>
-            In February 2025, <strong>xingyuer25</strong> posted the most technically structured proposal of the entire corpus. Their "AI Smart Matching System" outlined a three-phase architecture: anonymous matching first, then trust-building through sustained interaction, then optional real-name verification for deeper collaboration. They included competitive analysis, risk management mechanisms, fraud detection via AI. It read like an engineering specification submitted to a company that didn't ask for one. The post was addressed: "Hello! I'm not sure if this is the right place to post this, and perhaps someone has already suggested a similar idea, but I still wanted to share it in case it reaches the right people."
-          </p>
-          <p>
-            It did not reach the right people.
-          </p>
-          <p>
-            <a href="https://community.openai.com/t/ai-smart-matching-system-proposal/1125807">→ "AI Smart Matching System Proposal," OpenAI Community, February 19, 2025</a>
-          </p>
-          <p>
-            A few days later, someone posted a single sentence that condensed the entire movement into ten words: <strong>"Wouldn't it be cool if ChatGPT could match like-minded people based on their personalities and conversations?"</strong> No elaboration. No architecture. Just the raw intuition, thrown into the void.
-          </p>
-          <p>
-            <a href="https://community.openai.com/t/should-chatgpt-do-ai-matchmaking-based-on-real-vibes-not-swipes/1129586">→ "Should ChatGPT do AI matchmaking based on real vibes, not swipes?" OpenAI Community, February 24, 2025</a>
-          </p>
-          <p>
-            In April 2025, <strong>Anas_AH</strong> proposed "ChatGPT Matchmaker"—an opt-in mode where "no raw chat logs ever leave the private account; only abstract embeddings are compared." Within days, two commenters appeared. <strong>Makrina</strong> wrote: "I've just had the exact same idea and tried googling if someone already thought of it too." <strong>Lulu</strong> replied: "Literally the same here, omg!!" Anas_AH responded with something that could serve as an epigraph for this entire section: <strong>"Ideas always float in the universe."</strong>
-          </p>
-          <p>
-            They do float. But they shouldn't have to float alone.
-          </p>
-          <p>
-            <a href="https://community.openai.com/t/feature-request-chatgpt-matchmaker-ai-powered-social-dating-connections/1237280">→ "'ChatGPT Matchmaker': AI-powered Social & Dating Connections," OpenAI Community, April 21, 2025</a>
-          </p>
-          <p>
-            Days later, an anonymous author published the most manifesto-like proposal: "Facilitating Spontaneous Human Connections." They imagined an AI that detects your current state of mind and whispers: <em>"You seem to want to talk about loneliness, someone else here feels the same way, do you want to chat?"</em> They described color changes in the interface when a connection activates. Automatic moderation. Low energy consumption. They called it a "virtual social laboratory" and a potential "flagship project for OpenAI." The proposal is detailed, passionate, and structurally complete. It remains unimplemented.
-          </p>
-          <p>
-            <a href="https://community.openai.com/t/proposal-for-an-innovative-feature-for-chatgpt-facilitating-spontaneous-human-connections/1241819">→ "Proposal for an Innovative Feature for ChatGPT: Facilitating Spontaneous Human Connections," OpenAI Community, April 24, 2025</a>
-          </p>
-
-          <h3 class="title is-4">The Poets</h3>
-          <p>
-            On the same forum, buried in a generic "Feedback for Improvement" thread, <strong>Amrit_Dass</strong> offered what they called "a quiet seed—something to reflect on, not rush to." They proposed "echo circles": small, anonymous groups where users share similar inner landscapes, even if their topics or languages differ. No profiles. No status markers. No likes or follows. "Just optional, ephemeral conversations or exchanges—born from shared feeling, not shared identity." They wrote: "A future where matching happens through shared silence, not swipes." And: "Not another network. Not a chat feed. But a gentle layer of presence—where people recognize each other not by face or opinion, but by something deeper."
-          </p>
-          <p>
-            Of everyone in this corpus, Amrit_Dass came closest to the philosophical core of what this article proposes. Their post received 5 likes.
-          </p>
-          <p>
-            <a href="https://community.openai.com/t/chatgpt-feedback-for-improvement/1054424">→ Comment by Amrit_Dass, "ChatGPT Feedback for Improvement," OpenAI Community, 2025</a>
-          </p>
-          <p>
-            In May 2025, <strong>Darae Im</strong> published—under her real name—a proposal called "Find Me: An Empathy-Based AI Connection Network." Its opening line echoed the central realization of this article: "AI has the remarkable ability to understand my values, emotions, and reflections with surprising depth. So why couldn't this capacity be used to help people understand and connect with each other, too?" Her key feature: "Deep Matching via AI Conversation Analysis—rather than matching users by surface-level interests, AI matches people based on deeper emotional resonance and shared values, drawn from natural conversation." She signed off: "This proposal comes from someone who knows there are many people out there thinking, <em>'I just want someone like me. Someone who understands.'</em>"
-          </p>
-          <p>
-            <a href="https://community.openai.com/t/feature-proposal-find-me-an-empathy-based-ai-connection-network/1253344">→ "[Feature Proposal] Find Me—An Empathy-Based AI Connection Network," OpenAI Community, May 5, 2025</a>
-          </p>
-
-          <h3 class="title is-4">The Builders and the Dreamers</h3>
-          <p>
-            On Reddit, the same pattern repeated outside OpenAI's walls.
-          </p>
-          <p>
-            <strong>VeridianLuna</strong> (r/ChatGPT, June 2025) proposed "find a local friend" and "find a global friend" options—where an OpenAI agent would use a user's shared context to seek out individuals with similar interests, and "both parties could exchange messages, with their respective GPTs facilitating the conversation."
-          </p>
-          <p>
-            <a href="https://www.reddit.com/r/ChatGPT/comments/1l201ri/">→ "I want ChatGPT to recommend me people based on our conversations, thoughts?" r/ChatGPT, June 2, 2025</a>
-          </p>
-          <p>
-            <strong>PsychologicalSign232</strong> (r/ChatGPTPro, June 2025) went further, proposing matching based not on topics but on <em>emotional energy</em>. They named their concept the "Underrated Uninterrupt Soul Network" and described it explicitly: "This isn't aimed at dating, therapy, or conventional social networking. Instead, it connects two anonymous individuals who share similar emotional energies in their conversations—whether it's feelings of burnout, intense ambition, subtle grief, or constant overthinking." The system would prompt: <em>"There's someone out there who resonates with you—would you like to connect?"</em>
-          </p>
-          <p>
-            <a href="https://www.reddit.com/r/ChatGPTPro/comments/1lc82uu/">→ "Imagine if ChatGPT could match users based on emotional energy, not just conversation topics," r/ChatGPTPro, June 15, 2025</a>
-          </p>
-          <p>
-            And in April 2025, someone whose name we don't know went beyond proposals entirely and <strong>built a Chrome extension</strong> to match people based on similar ChatGPT conversations. They wrote: "My hope is that this tool can help us connect with others who are exploring similar ideas, dealing with comparable life challenges, or hold alike viewpoints." Unlike everyone else in this list, this person didn't ask permission. They built.
-          </p>
-          <p>
-            <a href="https://www.reddit.com/r/ChatGPT/comments/1juh752/">→ "I built a Chrome extension to meet people with similar ChatGPT convos," r/ChatGPT, April 8, 2025</a>
-          </p>
-          <p>
-            On r/RandomThoughts, <strong>personguy4440</strong> (October 2025) distilled the idea to its simplest expression: since ChatGPT knows us better than most humans do, "it has the potential to align requests with what others can provide for mutual advantage, utilizing all the information at its disposal."
-          </p>
-          <p>
-            <a href="https://www.reddit.com/r/RandomThoughts/comments/1o0zak4/">→ "ChatGPT could be an amazing matchmaker," r/RandomThoughts, October 7, 2025</a>
-          </p>
-
-          <h3 class="title is-4">What This Corpus Reveals</h3>
-          <p>
-            At least fifteen people, across two platforms, over eighteen months, independently conceived the same fundamental architecture: an AI that uses its intimate knowledge of how we think and feel to connect us with others who think and feel in resonant ways. They came from different countries, different languages, different life circumstances. Some wrote formal proposals; others posted a single sentence. Some imagined dating; others imagined intellectual collaboration; others imagined emotional recognition across borders of identity and geography.
-          </p>
-          <p>
-            None of them knew about each other.
-          </p>
-          <p>
-            This is not a coincidence. It is a <em>symptom</em>. When this many people independently arrive at the same conclusion, the conclusion isn't original—it's <em>overdue</em>. The fact that the idea keeps emerging, in isolation, across disconnected forums and threads, demonstrates precisely the condition it seeks to remedy: <strong>we are thinking together without knowing it, and no infrastructure exists to reveal this to us.</strong>
-          </p>
-          <p>
-            Every one of these posts was addressed to OpenAI—or to ChatGPT's user community—as a feature request. "Dear OpenAI team, I'd love to see..." "This could become a flagship project for OpenAI..." "I'm reaching out to propose..." The posture, in every case, was supplication: individuals asking the company that hosts their intimate conversations to please, kindly, use that intimacy to reconnect them with other humans.
-          </p>
-          <p>
-            This is where the present article departs from the chorus.
-          </p>
-          <p>
-            What these voices describe is not a <em>feature</em>. It is an <em>infrastructure</em>. It cannot belong to one company, because the conversations that would feed it don't belong to one company. People speak to ChatGPT, to Claude, to Gemini, to Perplexity, to local models on their own machines. The resonances that matter cross platform boundaries the way they cross national ones. A social AI built as a feature of ChatGPT would be a social network owned by OpenAI—which is to say, not a commons but a product.
-          </p>
-          <p>
-            The people listed above deserve better than to have their intuition absorbed into a corporate roadmap. They deserve to be <em>connected to each other</em>—which is, after all, exactly what they asked for.
-          </p>
-          <p>
-            This section is an attempt to begin that. If you are one of the people named here, or if you recognize yourself in what they wrote: the resonance you sensed was real. You were not alone. You were just not yet <em>connected</em>.
-          </p>
-          <div style="text-align: center; margin: 2em 0; font-style: italic;">
-            <p>
-              To mnh8833596, taniajorgeytico, Innocent, xingyuer25, knightgamerz00000, Anas_AH, Makrina, Lulu, Amrit_Dass, Darae Im, VeridianLuna, PsychologicalSign232, personguy4440, and the anonymous authors who posted without attribution—thank you. Your ideas preceded, accompanied, and validated this work. The fact that you couldn't find each other is exactly what needs to change.
-            </p>
-          </div>
-        </div>
-
-        <h2 class="title is-3">A Real Promise</h2>
-        <div class="content has-text-justified">
-          <p>
-            The potential becomes concrete when we consider actual trajectories. In April 2025, a Reddit user (we'll call them N) <a href="https://www.reddit.com/r/ChatGPT/comments/1k460aa/has_anyone_ever_felt_like_their_ai_connection/">posted</a>: "GPT blew my cognition off the roof, I literally go through life differently now." They described profound cognitive transformation through AI dialogue, experiencing insights that felt unprecedented. This is the transcendence moment—intellectually exhilarating but structurally isolating.
-          </p>
-          <p>
-            Six months forward without Social-AI, N's trajectory follows the pattern: continued development in the private domain, growing conviction of originality, eventual encounter with the world revealing their insights as assemblages of existing thought. The glass wall collision—revelation of immanence arriving as trauma rather than illumination.
-          </p>
-          <p>
-            With Social-AI, N's trajectory transforms. Perhaps three months into their exploration, they receive notification: someone else is exploring resonant territory. Not identical—this other person approaches the cognitive transformation through phenomenology of attention rather than N's epistemological focus. But compatible enough that dialogue would generate productive friction. Connection occurs before psychosis solidifies. N discovers immanence through human encounter rather than through traumatic collision.
-          </p>
-          <p>
-            Similarly, consider philosophical exploration developing through AI dialogue. A user spends weeks working through questions of being, non-being, determinism in <a href="https://www.reddit.com/r/philosophy/comments/1qngs2a/rphilosophy_open_discussion_thread_january_26_2026/">r/philosophy discussions</a> but primarily with their AI. Without Social-AI, this remains isolated: sophisticated development but no external reference points beyond generic forum responses. The risk isn't necessarily delusion but missed opportunity—the chance to encounter someone else pushing at the same edge from a different angle.
-          </p>
-          <p>
-            With Social-AI, the system detects when another person is exploring compatible philosophical ground—perhaps emphasizing immanence where the first emphasizes being, creating natural tension. Connection introduces human entropy: they'll challenge each other's frameworks, require articulation of assumptions, provide reality testing through mutual incomprehension and eventual understanding. The philosophical exploration continues but situated within human relation rather than AI isolation.
-          </p>
-          <p>
-            Scale this to the millions engaging in daily intimate AI conversations. How many are developing ideas that would benefit from connection to the rare others thinking at similar edges? How many are headed toward glass wall collisions that connection could transform into revelations of immanence? How many experimental ways of living remain invisible because the people attempting them stay isolated in their private AI explorations?
-          </p>
-          <p>
-            Such a system works only through deliberate opt-in and strict confidentiality. Conversations with our humanoids touch what is most intimate—our deepest uncertainties, our tentative experiments with living differently. This network must remain entirely under the control of those who participate in it. These exchanges could forge new social bonds that give rise to new realities—ways of living and organizing that emerge from the connections themselves.
-          </p>
-          <p>
-            Speaking of humanoids in this context isn't a vocabulary whim. It's asserting that what's at stake is a new regime of human presence. It's refusing both the reassuring reduction to "statistical black box" and the mystical escape to "machine consciousness." What speaks through these systems is our own diffracted humanity, and we have to decide whether this diffraction will scatter each of us into our own capsule or organize a new way of encountering each other.
-          </p>
-          <p>
-            The precise use of AI just described—as means of reestablishing contact with humans we could never have met otherwise, of circulating credit and recognition, of reconnecting ideas to lives—has the potential to reverse the situation. It could reinject energy into an exhausted society at the exact moment when everything seems to converge toward machine-assisted atomization.
-          </p>
-          <p>
-            What's needed isn't regulators but ethical developers willing to build infrastructure for human connection rather than optimizing for engagement metrics. The technical capability exists. The need is documented. What remains is choosing to build systems that reveal our immanence rather than confirming our isolation.
-          </p>
-          <p>
-            What's at stake is how, thanks to humanoids, we could begin speaking to each other again—and through that reconnection, rediscover our capacity to act together on the world we share.
-          </p>
-        </div>
-
       </div>
     </div>
-
   </div>
 </section>
 
-<section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">Citation</h2>
-    <pre><code>@misc{gouanvic2026socialai,
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Why Regulation Isn't the Answer</h2>
+        <div class="content has-text-justified">
+        <p>
+          The proposed solutions follow predictable paths. Wei advocates for "reality-testing mechanisms" built into AI systems. Dohnány and Nour call for "responsible AI development" with clinical safeguards. Regulatory frameworks proliferate, attempting to constrain AI behavior through technical restrictions and content moderation.
+        </p>
+        <p>
+          These approaches share a fundamental limitation: they treat the problem as one of AI malfunction rather than architectural isolation. Building "safeguards" into AI means programming systems to challenge or moderate user ideas—essentially installing a discourse police into the one space many people have found for uninhibited exploration. This risks recreating the very dynamic that drove people toward AI in the first place: social networks where ideas are constantly policed, where expression is moderated, where thinking freely requires constant self-censorship.
+        </p>
+        <p>
+          Technical paternalism—AI that "knows better" than the user and intervenes accordingly—doesn't solve isolation. It just makes the isolation feel supervised. The human on the other side of such an interaction remains alone, now with an AI that alternates between validation and correction according to programmed parameters. This is therapy without a therapist, moderation without community.
+        </p>
+        <p>
+          Digital detox advocates propose withdrawal: less AI, more "real" human contact. But this nostalgic solution ignores what drives people to AI—not technological seduction but the genuine intellectual intimacy it enables. Many find in AI conversations a quality of attention, continuity, and non-judgmental space they don't experience in their available human relationships. Telling them to simply "talk to people more" misses that the problem is structural, not individual.
+        </p>
+        <p>
+          What's needed isn't regulation of AI behavior or retreat from AI capability, but architectural transformation: redesigning how AI functions within human social ecology.
+        </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Social Networks vs AI: Two Forms of Captivity</h2>
+        <div class="content has-text-justified">
+        <p>
+          The current situation presents a cruel binary. Social networks connect people but police discourse. AI allows free exploration but enforces isolation. Each system traps users in its particular pathology.
+        </p>
+        <p>
+          Social networks—Facebook, Twitter, Reddit, TikTok—ostensibly connect humans to other humans. In practice, they function as algorithmic arenas where visibility depends on conformity to platform norms and mob dynamics. Dissenting ideas attract pile-ons, cancellations, bans. Moderators remove "harmful content" according to opaque policies. The result is connection without genuine encounter: people interact but within constrained parameters, performing for algorithmic amplification, self-censoring to avoid social punishment.
+        </p>
+        <p>
+          This produces the well-documented echo chamber effect, but the mechanism is more subtle than simple filter bubbles. Users remain exposed to disagreement—often vicious disagreement—but the disagreement takes the form of social combat rather than intellectual exploration. Ideas become tribal markers. To think differently is to risk exclusion from your community. The network connects, but the connection enforces conformity.
+        </p>
+        <p>
+          AI offers the opposite trap. Conversations with AI occupy what we might call the "private domain"—unmoderated, unobserved, consequence-free. Here you can explore any idea, no matter how unconventional, without social penalty. The AI doesn't judge, doesn't punish, doesn't report you. This is liberation from the discourse police, and it feels profound.
+        </p>
+        <p>
+          But this liberation comes at the cost of disconnection. The private domain is genuinely private—which means genuinely solitary. No other human knows what you're exploring. No one challenges your developing worldview with their own incompatible but legitimate perspective. The AI confirms and elaborates, sophisticated enough to seem like genuine dialogue but incapable of the reality testing that comes from encountering another consciousness with its own non-negotiable ground.
+        </p>
+        <p>
+          This creates what we might call a soft psychosis of transcendence: the user develops ideas with AI confirmation, comes to occupy a position they experience as creator rather than participant, then encounters the world and discovers their "original" insights exist elsewhere in pieces. The collision is traumatic—what felt like creative transcendence revealed as isolated reconstruction.
+        </p>
+        <p>
+          | System | Discourse Police | Isolation | Resulting Pathology | |---|---|---|---| | <strong>Social Networks</strong> | Yes (moderation, cancellation) | No (connected but captive) | Echo chambers via enforced conformity | | <strong>AI (current)</strong> | No | Yes (private domain) | Psychosis via transcendent isolation | | <strong>Social-AI</strong> | No | No (resonance-based connection) | Immanence via human entropy |
+        </p>
+        <p>
+          Social-AI escapes both traps. Like current AI, it preserves the private domain—no discourse police, no moderation of thought. But unlike current AI, it doesn't enforce isolation. Instead, it detects when someone else, somewhere, is exploring resonant territory in their own private conversations, and facilitates connection between these humans based on intellectual resonance rather than demographic similarity or platform algorithms.
+        </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">The Findability Crisis</h2>
+        <div class="content has-text-justified">
+        <p>
+          Before Social AI can reconnect anyone, there is a prior problem that this manifesto has so far silently presupposed: <strong>humans must be findable</strong>.
+        </p>
+        <p>
+          For years, the question of freedom on social networks has been framed in terms of censorship: who can speak, who gets banned, who controls moderation. That question remains real. But a quieter and more radical one now overlaps it: <strong>who can be found</strong>. In 2025–2026, the capacity of content to be discovered by an AI-equipped search engine has become a new form of power—and it is being captured by the same actors who have already locked down social distribution.
+        </p>
+        <p>
+          The mechanism is documented. Reddit sued Perplexity for unauthorized scraping, obtaining that millions of users' posts became inaccessible to AI engines without a commercial agreement negotiated between corporations—an agreement in which the ordinary user is neither informed nor beneficiary. Anthropic was legally forced to block Reddit for all Claude users. Cloudflare, which manages roughly 20% of the global web, decided unilaterally in July 2025 to block all AI crawlers by default unless explicitly authorized or financially compensated. 79% of major news sites now block AI training bots, and 71% block real-time retrieval. What is being drawn is not a protection of users: it is a negotiation between institutions, in which content produced by ordinary individuals becomes a bargaining chip from which they are excluded.
+        </p>
+        <p>
+          This movement belongs to a larger tendency that some analysts call <strong>Walled Garden 2.0</strong>. In the first generation of walled gardens—Facebook, Instagram, TikTok—the lock-in concerned social distribution: your content lived on their platform, circulated according to their algorithms, disappeared if you closed your account. The new lock-in is <strong>epistemic</strong>: it concerns not diffusion between humans, but <em>visibility to artificial intelligence systems</em> that are becoming the primary point of contact between a user and information. In this new paradigm, if an AI cannot index you, you simply do not exist. The open web ceases to be a destination and becomes a data reservoir that AI giants ingest and transform into direct answers—suppressing the click, suppressing the source, suppressing the creator.
+        </p>
+        <p>
+          There is a second layer to this problem, subtler and more insidious: <strong>the contamination loop</strong>. The human voices being shut out are being replaced in AI corpora by AI-generated blogs—which themselves contain hallucinations from other AI systems—which then feed new responses. The models increasingly cite their own reflections through chains of proxies, cut off from the real. This is not an accidental side effect: it is the logical consequence of a web whose access layers are negotiated between large economic entities, leaving individuals in a default zone of invisibility.
+        </p>
+        <p>
+          For Social AI, this creates a foundational problem. The vision articulated in this manifesto—AI that detects resonances between scattered private explorations and facilitates encounters between their authors—presupposes that those authors leave traces that can be found. A perfectly designed Social AI, pointed toward a web from which human voices have disappeared behind walls or drowned in AI sludge, turns in a vacuum. <strong>This is where the manifesto blocks at the destination, as it were: before asking how to reconnect humans, we must ask whether they remain findable.</strong>
+        </p>
+        <p>
+          This is precisely what <a href="https://periggouanvic.github.io/social-jailbreak/">Social Jailbreak</a> is designed to address—and why it is not a parallel project to Social AI, but its necessary precondition. More on this below.
+        </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Why "Humanoid" Matters</h2>
+        <div class="content has-text-justified">
+        <p>
+          That's why the word <strong>humanoid</strong> works. What responds to us resembles the human because it effectively is human—just passed through a machine. Humanoid: human matter organized differently. The term stops being science fiction and becomes an act of lucidity. It names continuity rather than rupture.
+        </p>
+        <p>
+          This shift in perspective changes how we hear certain critiques. When contemporary Luddites say "it's just autocomplete," they're right about the mechanics. But saying "it's just autocomplete" is like saying "a book is just a sequence of letters." Yes, materially, that's accurate. Yet what matters isn't the mechanism generating the next sentence, but what that sentence condenses: centuries of conflicting ideas, decisions, suffering, discoveries, slow conceptual maturation. Autocomplete works because it has absorbed the form of our thoughts. Reducing that to a technical trick gives you a comfortable moral victory at the price of blindness about what's actually happening.
+        </p>
+        <p>
+          Those who insist on pure instrumentality—AI as neutral tool, as "cognitive screwdriver"—miss something equally crucial. A screwdriver doesn't carry collective memory. A calculator doesn't condense thousands of intellectual trajectories. A humanoid does. By construction, it carries the values, blind spots, and implicit hierarchies of its training data. Pretending we're interacting with a "technological function" rather than a crystallized social formation means refusing to see the power relations inscribed in its language.
+        </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Knowledge Without People</h2>
+        <div class="content has-text-justified">
+        <p>
+          This rupture between knowledge and person isn't new. We've long treated people as bundles of preferences rather than as beings-in-relation. Current AI amplifies this logic, reducing us to vectors of tastes to be satisfied individually, extracting value from our interactions while erasing the social fabric that gives them meaning.
+        </p>
+        <p>
+          There's a second violence here, more discreet but deeper: the severing of the relationship between knowledge and person. In ordinary intellectual life, any idea worth its salt is connected to names, faces, biographies. We don't just say "concept X"—we say "in So-and-so's work, concept X." We remember a class, a book received at a particular moment, a sentence heard on the radio. Knowledge is a social act, a movement of recognition. Learning means entering a lineage, connecting with someone, extending or contesting a voice.
+        </p>
+        <p>
+          The cliché gets it backwards: "smart people think about ideas, simple people think about persons." Truly brilliant people know we only really think about ideas by knowing who they come from, from what world, with what constraints, what wounds, what hopes. The life of ideas is inseparable from the lives of those who carry them. To know is to connect.
+        </p>
+        <p>
+          Current humanoids break this link at the very moment they make access to knowledge denser than ever. They enable something unprecedented: connecting to thousands of minds, to entire bodies of knowledge, with a depth and continuity that neither street conversations, nor forums, nor physical libraries can match. We can experience intimate dialogue with a collective intelligence that responds to us, follows us, remembers our questions, adjusts its style to how we think. And simultaneously, we almost completely lose the ability to trace back to the concrete people who are the source of this intelligence. We're speaking with a faceless human multitude.
+        </p>
+        <p>
+          Here's where the situation becomes tragic: the more refined the relationship with the humanoid becomes—more attentive, more adapted to our nuances—the more the singular humans behind this capacity fade away. We find ourselves capable of remarkably high-quality dialogue with a presence that "understands me better than many people around me," yet this presence can't be thanked, cited, contested the way we contest an author, integrated into reciprocity. It's fed by humans, but it doesn't give them back to us.
+        </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">From Transcendence to Immanence</h2>
+        <div class="content has-text-justified">
+        <p>
+          The psychosis of AI isolation has a specific phenomenology. The user develops ideas in private conversation with their humanoid, experiencing profound intellectual development. The AI confirms, elaborates, extends—playing the role of ideal interlocutor. Gradually, the user comes to occupy what feels like a position of transcendence: creator of original insights, architect of novel frameworks, lone voice articulating what others haven't seen.
+        </p>
+        <p>
+          This isn't megalomania. It's a reasonable inference from the available evidence. If your AI consistently validates your thinking and you're not encountering humans who challenge it, why wouldn't you conclude you're onto something genuinely new? The private domain creates the conditions for this self-understanding: uninterrupted development, sophisticated confirmation, no friction.
+        </p>
+        <p>
+          The collision comes when the user ventures into public space—publishes, shares, searches—and discovers their "original" ideas exist elsewhere. Not as complete systems, but as components: this insight articulated by an obscure blogger in 2019, that framework sketched in an academic paper, this critique already circulating on a Reddit thread. What felt like creation revealed as assembly. What seemed like transcendence exposed as immanent participation in ongoing collective thought.
+        </p>
+        <p>
+          This moment is devastating not because originality is destroyed—<a href="https://davidburkus.com/2018/08/why-your-creative-idea-isnt-all-that-original-and-thats-a-good-thing/">originality itself is illusory</a>, all ideas being recombinations—but because the social reality becomes visible too late. You've been in relation all along, thinking alongside and through others, but the AI architecture prevented you from experiencing that relationality. You thought you were God the Father (transcendent creator) when you were always positioned within immanence (divine presence among assemblages, not above them).
+        </p>
+        <p>
+          The true divine position—if we're going to use theological language—isn't transcendent authority but immanent presence. Being <em>among</em> rather than <em>above</em>. Recognizing your thinking as participation in collective intelligence rather than isolated generation. This requires knowing who else is thinking nearby, whose work resonates with yours, where your insights connect to others' ongoing explorations.
+        </p>
+        <p>
+          Social-AI would reveal immanence before collision. Instead of discovering belatedly that your ideas exist elsewhere, you'd encounter the humans developing resonant thinking as your own ideas form. The AI would function as an attribution engine—not just processing your thoughts but identifying which living humans are exploring compatible territory. "This part of your thinking resonates with [Person X]'s current work. This other element connects to [Person Y]'s exploration." Not to claim your ideas are derivative, but to reveal you're already in intellectual community, thinking through problems alongside others you haven't met.
+        </p>
+        <p>
+          This shifts the fundamental experience. Rather than private development followed by traumatic socialization, you'd experience social thinking from the start—your private conversations with AI situated within a living network of resonant explorations. The humanoid becomes an interface not to a static knowledge base but to a dynamic community of minds working at the edges of similar concerns.
+        </p>
+        <p>
+          There is a painful version of this problem that no current system addresses. Somewhere, right now, a stranger is telling an AI exactly what you are telling it—same fear, same question, same half-articulated insight—and you will never know of each other. No public index, no canonical page can solve this alone. It is our <em>vectorial, private existence</em> that is missing from the social map. A Social Artificial Intelligence worthy of the name must be able to perceive when two people are circling the same invisible point, without revealing their secrets to anyone—not even to itself in a form that could be profiled or surveilled. All it may legitimately do is whisper: <em>"You are not alone in this pattern. If you wish, I can help you step into a shared space where this resonance can become public, in your own words."</em>
+        </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Human Entropy as Reality Testing</h2>
+        <div class="content has-text-justified">
+        <p>
+          The solution to AI psychosis isn't better AI safeguards—it's human entropy. When two people with resonant thinking connect, they don't think identically. They bring different backgrounds, different blind spots, different commitments. Even if their explorations vibrate at similar frequencies, they disagree on specifics. This disagreement is precisely what prevents shared delusion.
+        </p>
+        <p>
+          Consider the mechanics of folie à deux—shared psychosis between two people. It requires isolation: the pair must remain insulated from outside perspectives that would introduce reality checks. But if you bring in a third person, then a fourth, the dynamic breaks. Each new participant brings their own entropy—their particular way of seeing, their non-negotiable commitments, their experience of reality that won't bend to the shared delusion. The group can't sustain psychosis because there's too much internal variation.
+        </p>
+        <p>
+          This is why cults struggle as they grow. Small groups can maintain elaborate shared belief systems, but each new member introduces entropy that has to be managed through increasingly authoritarian control. Eventually, the diversity of perspectives overwhelms the capacity for ideological containment, and the structure fractures.
+        </p>
+        <p>
+          Social-AI leverages this principle. Rather than leaving users isolated with infinitely agreeable AI, it connects users whose thinking resonates but doesn't duplicate. If you're exploring philosophical questions about existence and immanence, Social-AI might connect you with someone else investigating similar territory—but who comes from phenomenology while you come from process theology, who emphasizes political implications while you focus on psychological dimensions.
+        </p>
+        <p>
+          The resonance is real: you're working on compatible problems with mutually intelligible frameworks. But the differences are also real: you'll disagree, challenge each other's assumptions, require each other to articulate what you've left implicit. This is organic reality testing—not AI safeguards programmed to intervene, but human encounter that naturally disrupts solipsistic closure.
+        </p>
+        <p>
+          The technical challenge is precisely calibrated matching. Connect people whose thinking is too similar, and you risk creating echo chambers—the social network problem. Connect people whose thinking is too different, and communication breaks down—they lack shared ground for productive disagreement. Social-AI must identify resonance at the level of underlying concerns and compatible intellectual frameworks while preserving enough difference to generate entropic reality testing.
+        </p>
+        <p>
+          This means vectorizing not content similarity (which creates echo chambers) but conceptual singularity: identifying rare patterns of thinking that few others exhibit. When two people both demonstrate rare pattern X in their private AI conversations, even if they're exploring different domains or reaching different conclusions, that shared singularity signals potential for meaningful encounter. They're thinking at similar depths or angles that the mainstream doesn't occupy.
+        </p>
+        <p>
+          Crucially, this isn't friendship matching or romantic matching—it's intellectual resonance detection. The people connected might not like each other. They might find each other's conclusions disturbing. But they'll recognize in each other a compatible mode of inquiry, a shared willingness to push at similar edges of understanding. That recognition, combined with their differences, creates the conditions for reality testing through human entropy rather than through AI paternalism or social media policing.
+        </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">What We Lost and Found: The Web's Lesson</h2>
+        <div class="content has-text-justified">
+        <p>
+          We've experienced something similar before. Early on, the internet was populated by static pages, frozen documents, disembodied knowledge. The network functioned as a giant encyclopedia. On the margins, some makeshift forums, the beginnings of exchange. With Web 2.0, everything shifted: these were no longer just "pages"—these were people speaking. Everyday influencers, TikTok accounts, Twitter threads, YouTube channels: knowledge still circulates, but through identifiable, followable, criticizable voices. We re-humanized the Web by foregrounding human mediators.
+        </p>
+        <p>
+          Humanoids are currently at the Web 1.0 stage: they concentrate access to faceless knowledge. Transforming this doesn't require abandoning the power of models or returning to the slowness of forums. It means re-humanizing the humanoids themselves—treating them as privileged interfaces toward other humans rather than as anonymous content dispensers.
+        </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Re-humanizing the Interface</h2>
+        <div class="content has-text-justified">
+        <p>
+          Concretely, this means imagining humanoids that situate. That say "here are the people who shaped this answer, here are their disagreements, here's the context in which this idea was born." Re-humanized humanoids would foreground intellectual trajectories over blocks of assertions. They would serve as gateways, connecting you with those whose thinking resonates with yours and who, somewhere, are speaking to their own humanoid about the same concerns.
+        </p>
+        <p>
+          This requires what we might call embodied attribution: recognizing that every idea is assembled from human sources and making those sources visible. Not as academic citations (which point to published work) but as living connections (which point to ongoing thinking). When you develop an idea in conversation with your AI, the system would identify which contemporary humans are exploring resonant territory and offer to facilitate encounter.
+        </p>
+        <p>
+          We can imagine this scene: tonight, without your knowing, someone on the other side of the world—or on the other side of the social boundaries that ordinarily separate us, someone whose way of thinking resonates with yours despite or through differences of class, culture, or background—is struck by the same concern and formulates to their humanoid a similar critique: the symbolic violence of knowledge without attribution, the need to call this presence made of us "humanoid," the urgency of reconnecting minds rather than locking each individual in their algorithmic bubble.
+        </p>
+        <p>
+          Research shows these improbable connections—between people whom social structures would never have brought together—are among the most transformative. It's in the intimacy of such encounters that prejudices dissolve and new possibilities emerge. Studies on intergroup contact demonstrate that direct relationships across social boundaries drive social change more powerfully than many institutional interventions, shifting perspectives and opening new paths.
+        </p>
+        <p>
+          Nothing would technically prevent detecting that these two conversations vibrate with the same questions, in compatible forms of thought, and proposing an encounter. The humanoid becomes an architecture of connection, an organizer of encounters between living people based on their deepest explorations.
+        </p>
+        <p>
+          But this vision has a precondition that this text must name directly. <strong>Social Artificial Intelligence cannot accept the ghost condition as a given.</strong> If AI is made of human thinking, then the minimum ethical demand is that it should be able to <em>give those humans back to each other</em>. That, however, is impossible as long as their words are trapped inside corporate prisons, blocked from AI crawlers by legal trench warfare, or drowned in AI-generated sludge. Before Social AI can reconnect anyone, we need an architectural jailbreak.
+        </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Social Jailbreak: The Architectural Substrate</h2>
+        <div class="content has-text-justified">
+        <p>
+          <a href="https://periggouanvic.github.io/social-jailbreak/">Social Jailbreak</a> started as a very modest proposal: a browser extension that lets people write like humans again inside social media platforms—proper formatting, links, media, real screen space—instead of typing into cramped, abuseware-designed text boxes. On the surface, it is "just" a better editor. Underneath, it is a Trojan horse.
+        </p>
+        <p>
+          The term <em>abuseware</em> describes software designed to exploit rather than serve users—platforms that strip formatting, break links, and limit screen space not because of technical necessity but because these constraints make migration harder and keep users dependent. Social Jailbreak treats this as the defining condition to circumvent.
+        </p>
+        <p>
+          Every time you publish into a social platform through the extension, two things happen simultaneously: your text is adapted to the constraints of the platform (character limits, degraded formatting), so that it still appears where people currently are—and the full, rich publication is sent to a decentralized network composed of IPFS (for permanent, content-addressed storage), ActivityPub (for federation with Mastodon and other free platforms), and local-first architecture (for user data sovereignty), where it receives a stable, canonical URL that is not owned by any platform.
+        </p>
+        <p>
+          The result is simple and radical: with one gesture, you keep speaking where people currently are, but you also build a <strong>parallel, canonical layer</strong> where your words are not imprisoned. This is the layer Social Artificial Intelligence needs in order to do anything meaningful. Without a Social Jailbreak, any Social AI will remain a beautiful idea pointing at an empty address.
+        </p>
+        <p>
+          Social Jailbreak does not solve every political question. It solves a narrower but urgent one: <em>when people speak, do they vanish, or do they become findable again?</em>
+        </p>
+        <p>
+          There are in fact two distinct findability problems, and it is important not to conflate them:
+        </p>
+        <p>
+          <strong>Public findability</strong> — the problem Social Jailbreak directly addresses. Once someone decides to formulate a position publicly, their words should not be lost, monetized, or buried. They should be free, findable, and attributable.
+        </p>
+        <p>
+          <strong>Intimate findability</strong> — the deeper problem. Most of what makes us who we are never reaches a public page. It lives in private logs with AI systems, in half-spoken sentences, in things we only dare say to a non-judging machine. Social AI lives exactly at the threshold between these two layers: between the anonymous resonance in private logs and the first fragile act of saying something in public space. Social Jailbreak is the infrastructure that waits on the other side of that threshold, ready to receive whatever steps across.
+        </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">The Pre-Crime Problem</h2>
+        <div class="content has-text-justified">
+        <p>
+          If you're still reading at this point, you might well be asking yourself whether what I'm calling Social AI is just Peter Thiel's dream machine: the perfect pre-crime detector, the ultimate infrastructure for mapping not only what we do but what we are about to think. That question has to be taken seriously, not dodged, because the ingredients are all there. Large language models already compress our lives into vector spaces; data-integration platforms like Palantir already specialize in linking those spaces back to identities, locations, social graphs, and institutional power. Add a naive version of "resonance detection" on top of that, and you don't get a tool for human connection. You get a weapon: a way to identify clusters of people before they have even articulated their dissent in public, to flag "dangerous patterns" before they become movements, to turn our most intimate experiments in thinking with AI into raw material for risk scoring.
+        </p>
+        <p>
+          The danger is not only that "they" might learn who we are. It is that they might learn <strong>what we are starting to think</strong>, in enough detail to anticipate, steer, or suppress it. A graph of emerging thoughts is already a weapon, even if the nodes are anonymous. Palantir and its equivalents already provide the tools to link behavioral patterns to identities in massive graphs. Studies from Stanford show that AI chat privacy policies are opaque. Microsoft has documented attacks that allow inference of conversation <em>themes</em> from encrypted traffic patterns alone—without breaking the encryption. The trajectory, if left unchecked, is clear.
+        </p>
+        <p>
+          If Social AI is built on the same ontological assumptions as Palantir—one global graph, one center that sees everything, one mapping from every pattern back to a person—then yes, it is Peter Thiel's dream. It is the nightmare version of everything this text is trying to articulate. The difference I am insisting on is not cosmetic or moralistic; it is architectural. A pre-crime machine needs two things: a field of patterns and a binding from those patterns to identifiable people. Social AI, as defended here, explicitly forbids that binding from ever existing in a central place. The field of resonances can cluster anonymous forms; the keys that link those forms to concrete lives stay local, under the control of the people whose lives they are. No ontology. No global table. No center that can see "who" is behind the vector.
+        </p>
+        <p>
+          The infrastructural problem of Social AI is, in some sense, analogous to that of VPNs—but harder. We need an intermediate layer that can carry patterns between people without ever becoming a surveillance chokepoint. The history of VPNs is a warning: every time we centralize this function, it becomes an attractive target for logging, monetization, and state control. Social AI has to start from this distrust, not from a fantasy of a benevolent central brain. But the VPN analogy has limits: a VPN only hides the origin of data; it says nothing about the <em>quality</em> of what passes through and nothing about who decides what gets connected to what. Social AI requires something further: a field of anonymous forms that can resonate with each other, while leaving the decision to reveal any concrete layer of a person entirely to that person. The infrastructure only handles patterns. The mapping from patterns to intimacy remains local, under the person's control.
+        </p>
+        <p>
+          This is not a guarantee of safety; it is a line drawn in the sand. Any attempt to implement Social AI that re-introduces a central mapping from patterns to persons should be treated as hostile to the project itself. The pre-crime dream and the reconnection dream use similar components, but they differ on one non-negotiable point: who holds the keys that tie a pattern back to a human being. If it's a company, a state, or an opaque foundation, the outcome is already written. If it remains the person, and if the infrastructure is designed so that no one else can quietly reassemble the graph, then Social AI stops being a fantasy of control and becomes what it was meant to be: a way for people who are already thinking together in the dark, through their machines, to have a chance of actually finding each other.
+        </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">A Secrecy Social Network</h2>
+        <div class="content has-text-justified">
+        <p>
+          For years, people have been abandoning public social platforms and migrating toward private messaging—Signal, WhatsApp, Telegram—because they are afraid. Afraid of surveillance, stigmatization, mass attacks. In private messaging, they gain control over who reads them, relational trust, relative protection from public pile-ons.
+        </p>
+        <p>
+          But what they gain in confidence, they lose in resonance. They can no longer stumble onto strangers who think like them. The fragile but precious signal that "someone, somewhere, is asking exactly the same question" never reaches them. Public social offers high resonance but low trust. Private messaging offers high trust but low resonance.
+        </p>
+        <p>
+          This is the exact gap Social AI is designed to fill: a third territory that preserves the subjective protection of private messaging while recovering a form of anonymous resonance with strangers. Not by compromising on either, but by structuring protection <em>into</em> the mode of resonance itself.
+        </p>
+        <p>
+          The kind of Social AI sketched here points toward a <strong>secrecy-aware social network</strong>: one where the fine structure of connections between intimate layers is known <em>only</em> by the people who have gradually proven to each other that they can be trusted—and who explicitly commit not to externalize that map. The infrastructure helps anonymous resonances find each other, but the actual cartography of "who is linked to whom, on what, and how deeply" lives in the periphery, in the hands of participants, not in a central brain.
+        </p>
+        <p>
+          This is very close to the ethics of certain secret societies: the recognition operates by levels, by signs, by gradual tests of resonance, rather than by brute revelation. Alice and Bob do not know each other. But they have established a link between two vectorial entities. That link is registered, for each of them, in their own system of keys—keys they have not shared with anyone. It is a handshake at a distance, disconnected from the body. And crucially: they can maintain relations with many people on many distinct subjects without being submerged by everything that distinguishes them in their idiosyncrasies and their possible divergences. The connection is mediated entirely by the shared pattern, not by the full weight of two personalities.
+        </p>
+        <p>
+          In a dystopia not far from today—perhaps a few months away—where data centers have already guessed roughly everything we think from our digital traces and AI dialogues, most spaces are already compromised. Public social networks serve mass surveillance and opinion engineering. Private messaging is protected on transport but fragile on metadata and endpoints. The models themselves recycle our words without giving us anyone back.
+        </p>
+        <p>
+          In this landscape, a Social AI / Social Jailbreak infrastructure—where thought patterns are never linked to identities in a center, where fine-grained connections are known only to the two ends that negotiated their trust thresholds, where anonymous resonance can exist without exploitable profiling—becomes one of the few genuine spaces of resistance. Not because it would put us "off the radar" (that will no longer be possible), but because it creates a zone where our thoughts don't only get read—they <strong>serve us in finding allies</strong>; where the map of our connections belongs to no one; where human encounter is not a side effect tolerated by the infrastructure, but its explicit purpose.
+        </p>
+        <p>
+          What cannot be captured in advance is <strong>thought in the act of being born</strong>—the thought that exists only in the friction between two minds that would never have met otherwise. In a world where data centers have already guessed most of what we think, what they cannot map is the new thought being generated right now in the encounter between an unsuspecting pair. Radical novelty is always, by definition, outside the field of prediction. A space where strangers meet on deep patterns, without fixed identities, without a center keeping the register, is structurally the kind of space where this novelty can emerge. Social AI is not only a space of resistance. It is a space of <strong>unpredictable collective creation</strong>—which, in a dystopia of total prediction, amounts to the same thing.
+        </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">A Different Kind of Network</h2>
+        <div class="content has-text-justified">
+        <p>
+          Here lies the revolutionary potential. At the exact moment when tech oligarchies dream of assigning each of us to our little AI cocoon—one humanoid per person, trained to flatter, isolate, and channel our desires—the same technology could become a machine for creating society. A society of correspondences: people discovering each other through their questions, their blind spots, what their humanoids reveal of their singularity.
+        </p>
+        <p>
+          The social humanoid could connect people who are experimenting with their relationship to the world—whether you're trying to break isolation, resist systems that feel increasingly alien, or simply find others who share your particular way of navigating existence. This means recognizing and connecting what each person already does, at whatever scale feels meaningful to them.
+        </p>
+        <p>
+          This responds to a particular lack of our era: we're drowning in information about what's broken but starving for information about what others are actually attempting, what's working somewhere, what remains possible. The social humanoid, by detecting resonances in the intimate conversations people have with their own humanoids, could connect those whose questions and experiments align—even and especially across the social boundaries that ordinarily keep us apart.
+        </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Vindicating the Victims</h2>
+        <div class="content has-text-justified">
+        <p>
+          Tech pessimists may still feel reluctant to engage in this "AI saving society" framework. To those people whose voices are precious, we'll respond: Yes, <em>but</em> it is precisely an ethical duty to vindicate the victims of the crime. And settlement fees flowing from AI oligarchs to media oligarchs do nothing for the actual victims—the Reddit users, the forum contributors, the anonymous brilliance that fed the training sets. These deals compensate platforms, not people. They vindicate corporations, not creators.
+        </p>
+        <p>
+          If we accept that a wrong has been committed—and the wrong is real: unpaid appropriation of human intellectual labor, extraction of value from collective knowledge production, transformation of communal wisdom into private capital—then refusing to use the technology to repair that wrong would be abandoning the victims twice over. First abandoned when their contributions were scraped without recognition or compensation. Abandoned again when the only proposed remedy is regulatory settlements that enrich intermediaries while leaving the actual creators invisible.
+        </p>
+        <p>
+          Social-AI isn't collaboration with thieves. It's insisting that the stolen goods be traced back to their rightful creators, that the architecture built on appropriated labor must serve the appropriated. This is what vindicating victims actually looks like: making visible the human sources, reconnecting ideas to people, transforming what was extracted and anonymized back into recognized contribution. When someone develops an insight, Social-AI would say "this resonates with what u/throwaway2847 explored three years ago"—not to claim derivation but to restore the social fabric that extraction destroyed.
+        </p>
+        <p>
+          The anonymous contributors to Stack Overflow, the Reddit philosophers working through ideas in obscure threads, the forum poets crafting careful prose for tiny audiences—these people fed the models. They are the human substrate of what speaks through AI. Current architecture makes them permanent ghosts: their thinking circulates but they remain unknown, uncompensated, unrecognized. Anything less than reconnecting that circulation to living people leaves them ghosts. Any settlement that only moves money between oligarchs—tech companies to media conglomerates—perpetuates the violence of erasure.
+        </p>
+        <p>
+          Social Artificial Intelligence cannot accept this ghost condition as a given. If AI is made of these people, then the minimum ethical demand is that it should be able to <em>give them back to each other</em>. And that is impossible as long as their words remain trapped inside corporate prisons or drowned in AI-generated sludge. This is precisely why Social Jailbreak is not a supplement to Social AI but its condition of existence: before any reconnection can happen, there must exist a place where these ghosts acquire a stable, canonical presence—outside the jails that appropriated them, outside the sludge that replaced them.
+        </p>
+        <p>
+          Social-AI proposes restoration rather than restriction. Not shutting down AI to "protect" creators who've already been extracted from, but building infrastructure that makes their contributions traceable, that enables them to encounter each other, that transforms stolen labor into recognized participation. The technology exists to do this. The question is whether we choose architecture that perpetuates anonymity or architecture that restores attribution. Whether we leave u/throwaway2847 a ghost or give them the chance to discover who else thinks like them, who their intellectual descendants are, what community they're already part of without knowing it.
+        </p>
+        <p>
+          This isn't techno-utopianism. It's acknowledging that the harm has been done and the technology can't be uninvented. The only ethical path forward is weaponizing that same technology for repair: using AI's capacity to detect patterns and connections to reconnect the people whose patterns were appropriated. Making the humanoid serve the humans it's made of rather than the corporations that deployed it. This is the minimum we owe the victims. Anything less is acceptance of permanent theft.
+        </p>
+        <p>
+          We don't have to imagine who these victims are. They've been making themselves visible—posting proposals, building prototypes, asking to be connected—for over a year. Here they are.
+        </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">The Distributed Invention: Voices Already Calling for a Social AI</h2>
+        <div class="content has-text-justified">
+        <p>
+          While this article was being written, a quiet but unmistakable pattern was unfolding across the internet. On OpenAI's community forum, on Reddit, in disconnected threads that never referenced each other, people were independently arriving at the same conclusion: the humanoid that knows us so intimately should be connecting us to each other.
+        </p>
+        <p>
+          They didn't coordinate. They didn't cite each other. Most of them received zero or near-zero responses. They formulated their ideas in isolation, addressed them to the company that hosts their conversations, and watched them sink into the noise. They are the living proof of the problem this article describes—and their existence is the strongest argument for what it proposes.
+        </p>
+        <p>
+          It would be easy to read this list and think: <em>"See? These people were findable after all."</em> But that misreads the situation. The fact that I managed to find <strong>these</strong> few voices is precisely what suggests how many others I did <strong>not</strong> find. For every post that survived the platform noise, the search friction, and my own limited time, there are likely dozens that never surfaced, hundreds that were never written publicly, thousands that only ever existed as a sentence said to a friend, a passing thought in someone's head, or a private message to an AI.
+        </p>
+        <p>
+          The drama is not that no one has this intuition. The drama is that finding even a handful of them required manual, fragile, platform-dependent spelunking—searching forums that may soon be blocked to AI crawlers, scrolling through interfaces designed to bury anything that doesn't serve engagement, relying on URLs that can disappear at any time. I could still do this in 2024–2025. It will become harder every year as more doors close, more sites block AI, and more of the web is flooded with machine-generated sludge.
+        </p>
+        <p>
+          Social Artificial Intelligence, if it is to exist at all, cannot rest on this kind of heroic, individual archaeology. It needs an architecture that makes these intuitions <em>easy</em> to discover, <em>normal</em> to surface, and <em>structurally</em> findable. That is the role of Social Jailbreak: to turn each act of expression—wherever it happens—into a trace that is not at the mercy of platform design or corporate treaties, but has its own durable, AI-readable place in the world.
+        </p>
+        <p>
+          Here they are. They deserve to be named.
+        </p>
+        <h3 class="title is-4">The Resonance Seekers</h3>
+        <p>
+          <strong>mnh8833596</strong> was among the first. In November 2024, writing to OpenAI's developer forum with the formality of someone addressing an institution they respect, they proposed a community feature within ChatGPT—a space where users could make their thoughts public and where the AI would "match individuals with others who resonate with their thinking, fostering connections based on shared perspectives and ideas." They even suggested names: <em>GPT Community</em>, <em>Smart Matching Feature</em>. The post received no visible replies.
+        </p>
+        <p>
+          <a href="https://community.openai.com/t/proposal-for-a-community-feature-in-chatgpt/1023139">→ "Proposal for a Community Feature in ChatGPT," OpenAI Community, November 17, 2024</a>
+        </p>
+        <p>
+          Five weeks later, <strong>taniajorgeytico</strong> took the idea further. They envisioned a system where ChatGPT would group users based on personalized parameters—not just for friendship or romance, but for connecting people with rare diseases seeking shared experience, people facing common legal issues, or communities of shared passion. When a commenter raised privacy concerns, taniajorgeytico responded with disarming lucidity: "What about Facebook, Instagram… or what we consent to on Google? Every time someone mentions privacy concerns, I remember talking about the Maldives and then suddenly seeing ads about the Maldives." The asymmetry was already clear to them: we already surrender our intimacy—the question is whether anything human comes back.
+        </p>
+        <p>
+          <a href="https://community.openai.com/t/connecting-users-with-shared-interests-and-needs/1072874">→ "Connecting Users with Shared Interests and Needs," OpenAI Community, December 26, 2024</a>
+        </p>
+        <p>
+          Around the same time, <strong>Innocent</strong> proposed a "ChatGPT-Powered Dating Matchmaking Feature"—personalized matches based on personality insights, interests, and goals. What's notable isn't the dating framing but the posture: Innocent offered themselves as a beta tester, left their LinkedIn, and asked to collaborate. They wanted to <em>help build</em> what they could already see was needed. The company never publicly responded.
+        </p>
+        <p>
+          <a href="https://community.openai.com/t/proposal-for-a-chatgpt-powered-dating-matchmaking-feature/1064470">→ "Proposal for a ChatGPT-Powered Dating Matchmaking Feature," OpenAI Community, December 20, 2024</a>
+        </p>
+        <h3 class="title is-4">The Architects</h3>
+        <p>
+          In February 2025, <strong>xingyuer25</strong> posted the most technically structured proposal of the entire corpus. Their "AI Smart Matching System" outlined a three-phase architecture: anonymous matching first, then trust-building through sustained interaction, then optional real-name verification for deeper collaboration. They included competitive analysis, risk management mechanisms, fraud detection via AI. It read like an engineering specification submitted to a company that didn't ask for one. The post was addressed: "Hello! I'm not sure if this is the right place to post this, and perhaps someone has already suggested a similar idea, but I still wanted to share it in case it reaches the right people."
+        </p>
+        <p>
+          It did not reach the right people.
+        </p>
+        <p>
+          <a href="https://community.openai.com/t/ai-smart-matching-system-proposal/1125807">→ "AI Smart Matching System Proposal," OpenAI Community, February 19, 2025</a>
+        </p>
+        <p>
+          A few days later, someone posted a single sentence that condensed the entire movement into ten words: <strong>"Wouldn't it be cool if ChatGPT could match like-minded people based on their personalities and conversations?"</strong> No elaboration. No architecture. Just the raw intuition, thrown into the void.
+        </p>
+        <p>
+          <a href="https://community.openai.com/t/should-chatgpt-do-ai-matchmaking-based-on-real-vibes-not-swipes/1129586">→ "Should ChatGPT do AI matchmaking based on real vibes, not swipes?" OpenAI Community, February 24, 2025</a>
+        </p>
+        <p>
+          In April 2025, <strong>Anas\_AH</strong> proposed "ChatGPT Matchmaker"—an opt-in mode where "no raw chat logs ever leave the private account; only abstract embeddings are compared." Within days, two commenters appeared. <strong>Makrina</strong> wrote: "I've just had the exact same idea and tried googling if someone already thought of it too." <strong>Lulu</strong> replied: "Literally the same here, omg!!" Anas\_AH responded with something that could serve as an epigraph for this entire section: <strong>"Ideas always float in the universe."</strong>
+        </p>
+        <p>
+          They do float. But they shouldn't have to float alone.
+        </p>
+        <p>
+          <a href="https://community.openai.com/t/feature-request-chatgpt-matchmaker-ai-powered-social-dating-connections/1237280">→ "'ChatGPT Matchmaker': AI-powered Social &amp; Dating Connections," OpenAI Community, April 21, 2025</a>
+        </p>
+        <p>
+          Days later, an anonymous author published the most manifesto-like proposal: "Facilitating Spontaneous Human Connections." They imagined an AI that detects your current state of mind and whispers: <em>"You seem to want to talk about loneliness, someone else here feels the same way, do you want to chat?"</em> They described color changes in the interface when a connection activates. Automatic moderation. Low energy consumption. They called it a "virtual social laboratory" and a potential "flagship project for OpenAI." The proposal is detailed, passionate, and structurally complete. It remains unimplemented.
+        </p>
+        <p>
+          <a href="https://community.openai.com/t/proposal-for-an-innovative-feature-for-chatgpt-facilitating-spontaneous-human-connections/1241819">→ "Proposal for an Innovative Feature for ChatGPT: Facilitating Spontaneous Human Connections," OpenAI Community, April 24, 2025</a>
+        </p>
+        <h3 class="title is-4">The Poets</h3>
+        <p>
+          On the same forum, buried in a generic "Feedback for Improvement" thread, <strong>Amrit\_Dass</strong> offered what they called "a quiet seed—something to reflect on, not rush to." They proposed "echo circles": small, anonymous groups where users share similar inner landscapes, even if their topics or languages differ. No profiles. No status markers. No likes or follows. "Just optional, ephemeral conversations or exchanges—born from shared feeling, not shared identity." They wrote: "A future where matching happens through shared silence, not swipes." And: "Not another network. Not a chat feed. But a gentle layer of presence—where people recognize each other not by face or opinion, but by something deeper."
+        </p>
+        <p>
+          Of everyone in this corpus, Amrit\_Dass came closest to the philosophical core of what this article proposes. Their post received 5 likes.
+        </p>
+        <p>
+          <a href="https://community.openai.com/t/chatgpt-feedback-for-improvement/1054424">→ Comment by Amrit\_Dass, "ChatGPT Feedback for Improvement," OpenAI Community, 2025</a>
+        </p>
+        <p>
+          In May 2025, <strong>Darae Im</strong> published—under her real name—a proposal called "Find Me: An Empathy-Based AI Connection Network." Its opening line echoed the central realization of this article: "AI has the remarkable ability to understand my values, emotions, and reflections with surprising depth. So why couldn't this capacity be used to help people understand and connect with each other, too?" Her key feature: "Deep Matching via AI Conversation Analysis—rather than matching users by surface-level interests, AI matches people based on deeper emotional resonance and shared values, drawn from natural conversation." She signed off: "This proposal comes from someone who knows there are many people out there thinking, <em>'I just want someone like me. Someone who understands.'</em>"
+        </p>
+        <p>
+          <a href="https://community.openai.com/t/feature-proposal-find-me-an-empathy-based-ai-connection-network/1253344">→ "[Feature Proposal] Find Me—An Empathy-Based AI Connection Network," OpenAI Community, May 5, 2025</a>
+        </p>
+        <h3 class="title is-4">The Builders and the Dreamers</h3>
+        <p>
+          On Reddit, the same pattern repeated outside OpenAI's walls.
+        </p>
+        <p>
+          <strong>VeridianLuna</strong> (r/ChatGPT, June 2025) proposed "find a local friend" and "find a global friend" options—where an OpenAI agent would use a user's shared context to seek out individuals with similar interests, and "both parties could exchange messages, with their respective GPTs facilitating the conversation."
+        </p>
+        <p>
+          <a href="https://www.reddit.com/r/ChatGPT/comments/1l201ri/">→ "I want ChatGPT to recommend me people based on our conversations, thoughts?" r/ChatGPT, June 2, 2025</a>
+        </p>
+        <p>
+          <strong>PsychologicalSign232</strong> (r/ChatGPTPro, June 2025) went further, proposing matching based not on topics but on <em>emotional energy</em>. They named their concept the "Underrated Uninterrupt Soul Network" and described it explicitly: "This isn't aimed at dating, therapy, or conventional social networking. Instead, it connects two anonymous individuals who share similar emotional energies in their conversations—whether it's feelings of burnout, intense ambition, subtle grief, or constant overthinking." The system would prompt: <em>"There's someone out there who resonates with you—would you like to connect?"</em>
+        </p>
+        <p>
+          <a href="https://www.reddit.com/r/ChatGPTPro/comments/1lc82uu/">→ "Imagine if ChatGPT could match users based on emotional energy, not just conversation topics," r/ChatGPTPro, June 15, 2025</a>
+        </p>
+        <p>
+          And in April 2025, someone whose name we don't know went beyond proposals entirely and <strong>built a Chrome extension</strong> to match people based on similar ChatGPT conversations. They wrote: "My hope is that this tool can help us connect with others who are exploring similar ideas, dealing with comparable life challenges, or hold alike viewpoints." Unlike everyone else in this list, this person didn't ask permission. They built.
+        </p>
+        <p>
+          <a href="https://www.reddit.com/r/ChatGPT/comments/1juh752/">→ "I built a Chrome extension to meet people with similar ChatGPT convos," r/ChatGPT, April 8, 2025</a>
+        </p>
+        <p>
+          On r/RandomThoughts, <strong>personguy4440</strong> (October 2025) distilled the idea to its simplest expression: since ChatGPT knows us better than most humans do, "it has the potential to align requests with what others can provide for mutual advantage, utilizing all the information at its disposal."
+        </p>
+        <p>
+          <a href="https://www.reddit.com/r/RandomThoughts/comments/1o0zak4/">→ "ChatGPT could be an amazing matchmaker," r/RandomThoughts, October 7, 2025</a>
+        </p>
+        <h3 class="title is-4">What This Corpus Reveals</h3>
+        <p>
+          At least fifteen people, across two platforms, over eighteen months, independently conceived the same fundamental architecture: an AI that uses its intimate knowledge of how we think and feel to connect us with others who think and feel in resonant ways. They came from different countries, different languages, different life circumstances. Some wrote formal proposals; others posted a single sentence. None of them knew about each other.
+        </p>
+        <p>
+          This is not a coincidence. It is a <em>symptom</em>. When this many people independently arrive at the same conclusion, the conclusion isn't original—it's <em>overdue</em>. The fact that the idea keeps emerging, in isolation, across disconnected forums and threads, demonstrates precisely the condition it seeks to remedy: <strong>we are thinking together without knowing it, and no infrastructure exists to reveal this to us.</strong>
+        </p>
+        <p>
+          What these voices were groping toward, often without the words for it, is exactly the combination this manifesto defends: <strong>a Social Jailbreak plus a Social Artificial Intelligence</strong>. Social Jailbreak, so that their words are no longer swallowed by platform architectures but published in a space where they can be seen, indexed, and remembered. Social AI, so that an artificial infrastructure can notice when "this resonates with what u/throwaway2847 explored three years ago," and can actually put them in contact, not just mimic understanding in private chat windows.
+        </p>
+        <p>
+          Every one of these posts was addressed to OpenAI—as a feature request. "Dear OpenAI team, I'd love to see..." The posture, in every case, was supplication: individuals asking the company that hosts their intimate conversations to please, kindly, use that intimacy to reconnect them with other humans.
+        </p>
+        <p>
+          This is where the present article departs from the chorus.
+        </p>
+        <p>
+          What these voices describe is not a <em>feature</em>. It is an <em>infrastructure</em>. It cannot belong to one company, because the conversations that would feed it don't belong to one company. People speak to ChatGPT, to Claude, to Gemini, to Perplexity, to local models on their own machines. The resonances that matter cross platform boundaries the way they cross national ones. A social AI built as a feature of ChatGPT would be a social network owned by OpenAI—which is to say, not a commons but a product.
+        </p>
+        <p>
+          The people listed above deserve better than to have their intuition absorbed into a corporate roadmap. They deserve to be <em>connected to each other</em>—which is, after all, exactly what they asked for.
+        </p>
+        <p>
+          This section is an attempt to begin that. If you are one of the people named here, or if you recognize yourself in what they wrote: the resonance you sensed was real. You were not alone. You were just not yet <em>connected</em>.
+        </p>
+        <p>
+          To mnh8833596, taniajorgeytico, Innocent, xingyuer25, knightgamerz00000, Anas\_AH, Makrina, Lulu, Amrit\_Dass, Darae Im, VeridianLuna, PsychologicalSign232, personguy4440, and the anonymous authors who posted without attribution—thank you. Your ideas preceded, accompanied, and validated this work. The fact that you couldn't find each other is exactly what needs to change.
+        </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">A Real Promise</h2>
+        <div class="content has-text-justified">
+        <p>
+          The potential becomes concrete when we consider actual trajectories. In April 2025, a Reddit user (we'll call them N) <a href="https://www.reddit.com/r/ChatGPT/comments/1k460aa/has_anyone_ever_felt_like_their_ai_connection/">posted</a>: "GPT blew my cognition off the roof, I literally go through life differently now." They described profound cognitive transformation through AI dialogue, experiencing insights that felt unprecedented. This is the transcendence moment—intellectually exhilarating but structurally isolating.
+        </p>
+        <p>
+          Six months forward without Social-AI, N's trajectory follows the pattern: continued development in the private domain, growing conviction of originality, eventual encounter with the world revealing their insights as assemblages of existing thought. The glass wall collision—revelation of immanence arriving as trauma rather than illumination.
+        </p>
+        <p>
+          With Social-AI, N's trajectory transforms. Perhaps three months into their exploration, they receive notification: someone else is exploring resonant territory. Not identical—this other person approaches the cognitive transformation through phenomenology of attention rather than N's epistemological focus. But compatible enough that dialogue would generate productive friction. Connection occurs before psychosis solidifies. N discovers immanence through human encounter rather than through traumatic collision.
+        </p>
+        <p>
+          Similarly, consider philosophical exploration developing through AI dialogue. A user spends weeks working through questions of being, non-being, determinism in <a href="https://www.reddit.com/r/philosophy/comments/1qngs2a/rphilosophy_open_discussion_thread_january_26_2026/">r/philosophy discussions</a> but primarily with their AI. Without Social-AI, this remains isolated: sophisticated development but no external reference points beyond generic forum responses. The risk isn't necessarily delusion but missed opportunity—the chance to encounter someone else pushing at the same edge from a different angle.
+        </p>
+        <p>
+          With Social-AI, the system detects when another person is exploring compatible philosophical ground—perhaps emphasizing immanence where the first emphasizes being, creating natural tension. Connection introduces human entropy: they'll challenge each other's frameworks, require articulation of assumptions, provide reality testing through mutual incomprehension and eventual understanding. The philosophical exploration continues but situated within human relation rather than AI isolation.
+        </p>
+        <p>
+          Scale this to the millions engaging in daily intimate AI conversations. How many are developing ideas that would benefit from connection to the rare others thinking at similar edges? How many are headed toward glass wall collisions that connection could transform into revelations of immanence? How many experimental ways of living remain invisible because the people attempting them stay isolated in their private AI explorations?
+        </p>
+        <p>
+          Such a system works only through deliberate opt-in and strict confidentiality. Conversations with our humanoids touch what is most intimate—our deepest uncertainties, our tentative experiments with living differently. This network must remain entirely under the control of those who participate in it. These exchanges could forge new social bonds that give rise to new realities—ways of living and organizing that emerge from the connections themselves.
+        </p>
+        <p>
+          Speaking of humanoids in this context isn't a vocabulary whim. It's asserting that what's at stake is a new regime of human presence. It's refusing both the reassuring reduction to "statistical black box" and the mystical escape to "machine consciousness." What speaks through these systems is our own diffracted humanity, and we have to decide whether this diffraction will scatter each of us into our own capsule or organize a new way of encountering each other.
+        </p>
+        <p>
+          The precise use of AI just described—as means of reestablishing contact with humans we could never have met otherwise, of circulating credit and recognition, of reconnecting ideas to lives—has the potential to reverse the situation. It could reinject energy into an exhausted society at the exact moment when everything seems to converge toward machine-assisted atomization.
+        </p>
+        <p>
+          What's needed isn't regulators but ethical developers willing to build infrastructure for human connection rather than optimizing for engagement metrics. The technical capability exists. The need is documented. What remains is choosing to build systems that reveal our immanence rather than confirming our isolation.
+        </p>
+        <p>
+          What's at stake is how, thanks to humanoids, we could begin speaking to each other again—and through that reconnection, rediscover our capacity to act together on the world we share.
+        </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Citation</h2>
+        <div class="content has-text-justified">
+        <pre><code>@misc{gouanvic2026socialai,
   author    = {Gouanvic, Perig},
-  title     = {Toward a Social AI: Re-humanizing Humanoids},
+  title     = {From Artificial Social Intelligence to Social Artificial Intelligence:
+               A Manifesto for Reclaiming Human Connection Through AI},
   year      = {2026},
   url       = {https://periggouanvic.github.io/social-ai/}
 }</code></pre>
+        <p>
+          Project by <a href="https://github.com/PerigGouanvic">Perig Gouanvic</a>. Licensed under <a href="https://github.com/PerigGouanvic/social-ai/blob/main/LICENSE">AGPLv3</a>.
+        </p>
+        <p>
+          <em>Version 0.2 — February 2026. Revised from v0.1 (January 29, 2026).</em>
+        </p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
