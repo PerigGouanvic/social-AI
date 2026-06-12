@@ -1,4 +1,6 @@
-# Social AI: Re-humanizing Humanoids
+# From Artificial Social Intelligence to Social Artificial Intelligence
+
+*A Manifesto for Reclaiming Human Connection Through AI*
 
 > [!NOTE]
 > **TLDR:** Architecture transforming AI from tool of isolation into social infrastructure: detecting resonances in private conversations to facilitate intellectual encounters impossible otherwise. This text first reframes AI philosophically before technical design. Implementations to follow.
