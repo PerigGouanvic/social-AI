@@ -27,7 +27,8 @@ This is a conceptual project exploring what truly social AI could mean.
 ## Documentation
 
 - 📖 [Full Manifesto](https://periggouanvic.github.io/social-ai/) - Complete vision
-- 🏗️ [Architecture](ARCHITECTURE.md) - Conceptual architecture
+- 🪨 [Foundations](FOUNDATIONS.md) - Load-bearing decisions from the conceptual phase
+- 🏗️ [Architecture](ARCHITECTURE.md) - Conceptual architecture (pre-Foundations; revision anticipated)
 - 📐 [Principles](PRINCIPLES.md) - Core design principles
 - ⚠️ [Challenges](CHALLENGES.md) - Open questions and problems
 
