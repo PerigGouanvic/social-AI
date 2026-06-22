@@ -116,3 +116,39 @@ The following questions are not yet resolved and will shape future sessions:
 ---
 
 *Established 2026-06-22, in working session. Subsequent decisions should reference and, where needed, amend this document explicitly.*
+
+---
+
+## Addendum (2026-06-22) — Same-Session Extensions
+
+The four sections below extend §1–§7 in the same working session that produced them. They formalize three points on which the prior framing was revised, and register one open thread.
+
+### 8. Broadcast-Topology as Fourth Foundation
+
+The cost of expression is not only the cost of being identified. It is also the cost imposed by the diffusion architecture that existing platforms enforce: a feed where the post lands, an aggregated audience that forms to react, metrics that surface and amplify, immediate returns. Two heterodox reflections per day on Reddit yield social burnout within weeks — through friction, pile-on, intentional ignorance, or moderation — regardless of whether the author is identified.
+
+Publishing into a substrate (IPFS) under pseudonym removes this topology entirely. There is no feed where the text lands, no audience that aggregates to react, no pile-on mechanism because there is no aggregator. The cost per publication tends toward zero. The author deposits in a substrate; they do not post into an arena.
+
+This joins wound-capacity (§2), the gradient of visibility (§4), and the finality of action (§5) as a load-bearing reason the project must exist apart from existing platforms.
+
+### 9. Mode C as Atelier (Reformulation of §3)
+
+Section 3 framed Mode C as a pragmatic deployable while Mode A is researched; §7 left open whether Mode C should ship before Mode A is viable. This addendum reformulates that tension.
+
+Mode C is best understood not as a *substitute* that risks displacing Mode A but as a *precursor* that makes Mode A's necessity legible. The kind of speech the project exists to host is today largely invisible: dispersed, unsayable, accumulated in AI accounts with no place to land. One cannot recruit mathematicians for Mode A's cryptography in a state of ignorance about what Mode A is for. Mode C — the workshop — peoples a layer in which this speech becomes visible, in which the demand for deeper protection becomes a thing one can point at and argue from.
+
+**Sequencing implication.** Mode C ships first. Its purpose is not only to serve its own audience but to demonstrate Mode A's necessity — and thereby to convene the collaborators without whom Mode A will not come.
+
+### 10. Adversary Model per Layer (Condition of the Atelier)
+
+The atelier framing is ethically viable only if each layer transparently announces the adversary model it covers and the one it does not. Mode C protects against social friction, audience-formation, pile-on, and casual identification. Mode C does not protect against a determined adversary with stylometric, traffic-correlation, or platform-data resources.
+
+If a person for whom speech carries state- or corporate-grade risk believes the atelier layer protects them at Mode A's strength, the project betrays them. This is the central failure mode of the precursor strategy.
+
+Consequences:
+- The first-gesture design (cf. §7) must include an explicit declaration of the adversary model and of the populations for whom the current layer is and is not appropriate.
+- Mode A is not optional. The atelier is incoherent without the commitment that Mode A is being worked toward — and that this work is solicited from the day Mode C ships.
+
+---
+
+*Addendum established 2026-06-22, same-day extension from working session.*
