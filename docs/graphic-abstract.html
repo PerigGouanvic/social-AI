@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Abstract graphique — Social AI</title>
+<style>
+  :root {
+    --bg: #fafaf7;
+    --ink: #1a1a1a;
+    --muted: #8a8a85;
+    --faint: #d8d8d2;
+    --card-bg: #ffffff;
+    --card-border: #e8e8e2;
+
+    --c-presence: #D97706;    /* ambre */
+    --c-ritualite: #991B1B;   /* rouge profond */
+    --c-adresse: #F87171;     /* rose corail */
+    --c-consultation: #475569;/* bleu ardoise */
+    --c-broadcast: #EAB308;   /* jaune-or */
+    --c-public: #65A30D;      /* vert olive */
+    --c-trace: #78350F;       /* brun sépia */
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+  header.intro { max-width: 900px; margin: 40px auto 20px; padding: 0 20px; }
+  header.intro h1 { font-size: 28px; margin: 0 0 8px; }
+  header.intro p { font-size: 15px; color: var(--muted); line-height: 1.5; margin: 8px 0; }
+
+  .legend {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(250, 250, 247, 0.95);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--card-border);
+    padding: 12px 20px;
+    display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
+  }
+  .pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 6px 12px; border-radius: 999px;
+    font-size: 12px; cursor: pointer; user-select: none;
+    background: var(--card-bg); border: 1px solid var(--card-border);
+    color: var(--muted); transition: all 0.15s;
+  }
+  .pill .swatch { width: 10px; height: 10px; border-radius: 50%; background: var(--sw); }
+  .pill.active { color: var(--ink); border-color: var(--sw); background: color-mix(in srgb, var(--sw) 8%, var(--card-bg)); }
+  .pill:hover { transform: translateY(-1px); }
+  .legend-controls { display: flex; gap: 8px; align-items: center; margin-left: 12px; }
+  .reset-btn {
+    padding: 6px 12px; border-radius: 999px; font-size: 12px; cursor: pointer;
+    background: transparent; border: 1px solid var(--faint); color: var(--muted);
+  }
+  .reset-btn:hover { color: var(--ink); border-color: var(--ink); }
+
+  .chart {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  .chart-inner {
+    position: relative;
+    height: calc(14 * 110px);
+  }
+  .canvas {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+  }
+  .canvas .interactive { pointer-events: auto; }
+
+  .phase {
+    position: absolute; left: 0; width: 220px;
+    height: 90px;
+    display: flex; align-items: center; gap: 12px;
+    padding: 8px 10px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.15s;
+    z-index: 2;
+  }
+  .phase:hover { border-color: var(--ink); }
+  .phase.selected { border-color: var(--ink); box-shadow: 0 0 0 2px var(--ink); }
+  .phase .icon { width: 40px; height: 40px; flex: 0 0 40px; color: var(--ink); }
+  .phase .txt { display: flex; flex-direction: column; }
+  .phase .n { font-size: 11px; color: var(--muted); }
+  .phase .key { font-size: 15px; font-weight: 600; }
+  .phase .dates { font-size: 11px; color: var(--muted); }
+
+  .arc, .ribbon-segment, .ribbon-baseline { transition: opacity 0.2s; }
+  .dim.faded { opacity: 0.08; }
+  .dim.highlight { opacity: 1; }
+  .dim.default { opacity: 0.85; }
+  .ribbon-baseline.default { opacity: 0.12; }
+  .ribbon-baseline.faded { opacity: 0.05; }
+  .ribbon-baseline.highlight { opacity: 0.3; }
+
+  .cut-mark {
+    fill: var(--muted);
+    font-size: 14px;
+    font-weight: bold;
+    text-anchor: middle;
+    dominant-baseline: middle;
+    opacity: 0.5;
+  }
+
+  footer { max-width: 900px; margin: 40px auto; padding: 0 20px 60px; color: var(--muted); font-size: 13px; line-height: 1.6; }
+
+  @media (max-width: 720px) {
+    .chart { padding: 10px; }
+    .phase { width: 160px; height: 74px; padding: 6px; }
+    .phase .icon { width: 32px; height: 32px; flex: 0 0 32px; }
+    .phase .key { font-size: 13px; }
+    header.intro h1 { font-size: 22px; }
+    .legend { padding: 8px 10px; }
+    .pill { font-size: 11px; padding: 5px 10px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="intro">
+  <h1>Abstract graphique — Social AI</h1>
+  <p>Une chronologie des médias inspirée de McLuhan, phase 0 (divination) à phase 13 (Social AI). Sept dimensions traversent l'histoire ; les arcs relient chaque phase aux phases passées qu'elle ré-attrape. Là où IA (phase 12) coupe presque toutes les chaînes de convergence humaine, Social AI (phase 13) les rouvre.</p>
+  <p><em>Touche une dimension pour la mettre en évidence · touche une phase pour voir ses résonances · touche à nouveau pour désactiver.</em></p>
+</header>
+
+<div class="legend" id="legend"></div>
+
+<div class="chart">
+  <div class="chart-inner" id="chartInner">
+    <svg class="canvas" id="canvas" preserveAspectRatio="none"></svg>
+  </div>
+</div>
+
+<footer>
+  <p><strong>Thèse.</strong> IA n'est pas la phase la plus moderne des médias, elle est la plus archaïque. Elle réactive la structure de la divination / oracle (consultation individuelle d'une entité savante) en coupant tous les acquis de convergence humaine et d'archive que 5000 ans intermédiaires avaient constitués. Social AI n'abandonne pas l'oracle — elle le remet dans le cercle et dans l'archive.</p>
+</footer>
+
+<script>
+const PHASE_ROW = 110;
+const CARD_W = 220;
+const CARD_H = 90;
+const CARD_MARGIN_LEFT = 20;
+const RIBBON_W = 22;
+const RIBBON_GAP = 6;
+const RIBBON_MARGIN_RIGHT = 20;
+
+const dimensions = [
+  {id: 'presence',     label: 'Voix / présence',      family: 'chaude', color: '#D97706'},
+  {id: 'ritualite',    label: 'Ritualité collective', family: 'chaude', color: '#991B1B'},
+  {id: 'adresse',      label: 'Adresse personnelle',  family: 'chaude', color: '#F87171'},
+  {id: 'consultation', label: 'Consultation solitaire', family: 'froide', color: '#475569'},
+  {id: 'broadcast',    label: 'Broadcast one-to-many', family: 'froide', color: '#EAB308'},
+  {id: 'public',       label: 'Public d\'opinion',    family: 'terre', color: '#65A30D'},
+  {id: 'trace',        label: 'Trace durable',        family: 'terre', color: '#78350F'},
+];
+
+const phases = [
+  {n:0,  key:'Oracle', dates:'préhistoire →', icon:'oracle'},
+  {n:1,  key:'Cercle', dates:'préhistoire →', icon:'circle'},
+  {n:2,  key:'Copie',  dates:'-2500 → 1450',  icon:'quill'},
+  {n:3,  key:'Livre',  dates:'1450 →',        icon:'book'},
+  {n:4,  key:'Journal',dates:'~1600 →',       icon:'news'},
+  {n:5,  key:'Lettre', dates:'~1700 →',       icon:'envelope'},
+  {n:6,  key:'Fil',    dates:'1830 →',        icon:'telegraph'},
+  {n:7,  key:'Voix',   dates:'1876 →',        icon:'phone'},
+  {n:8,  key:'Salle',  dates:'1895 →',        icon:'reel'},
+  {n:9,  key:'Onde',   dates:'1920 →',        icon:'antenna'},
+  {n:10, key:'Lien',   dates:'1991 →',        icon:'link'},
+  {n:11, key:'Flux',   dates:'2005 →',        icon:'feed'},
+  {n:12, key:'Prompt', dates:'2022 →',        icon:'bubble'},
+  {n:13, key:'Salon',  dates:'à venir',       icon:'salon'},
+];
+
+// Dimension activity: which phases each dimension is active at
+const activity = {
+  presence:     [1, 7, 9, 11, 13],
+  ritualite:    [1, 8, 13],
+  adresse:      [5, 7, 10, 11, 13],
+  consultation: [0, 2, 3, 12],
+  broadcast:    [4, 8, 9, 11, 13],
+  public:       [4, 10, 11, 13],
+  trace:        [2, 3, 5, 10, 13],
+};
+
+// Cuts to highlight explicitly (visible ✗ marks). Phase where a dimension is expected but broken.
+const cuts = [
+  {phase: 11, dim: 'trace'},
+  {phase: 11, dim: 'ritualite'},
+  {phase: 12, dim: 'presence'},
+  {phase: 12, dim: 'ritualite'},
+  {phase: 12, dim: 'adresse'},
+  {phase: 12, dim: 'broadcast'},
+  {phase: 12, dim: 'public'},
+  {phase: 12, dim: 'trace'},
+];
+
+// Arcs: {from, to, dim, strength: 'strong'|'medium'|'weak', note?}
+const arcs = [
+  {from: 3, to: 2, dim: 'trace', strength: 'weak'},
+  {from: 4, to: 1, dim: 'public', strength: 'medium'},
+  {from: 5, to: 1, dim: 'presence', strength: 'medium'},
+  {from: 5, to: 2, dim: 'trace', strength: 'medium'},
+  {from: 7, to: 1, dim: 'presence', strength: 'strong'},
+  {from: 7, to: 5, dim: 'adresse', strength: 'medium'},
+  {from: 8, to: 1, dim: 'ritualite', strength: 'strong'},
+  {from: 9, to: 1, dim: 'presence', strength: 'medium'},
+  {from: 9, to: 8, dim: 'broadcast', strength: 'medium'},
+  {from: 9, to: 4, dim: 'broadcast', strength: 'weak'},
+  {from: 10, to: 1, dim: 'presence', strength: 'medium'},
+  {from: 10, to: 2, dim: 'trace', strength: 'medium'},
+  {from: 10, to: 4, dim: 'public', strength: 'medium'},
+  {from: 10, to: 5, dim: 'adresse', strength: 'medium'},
+  {from: 11, to: 1, dim: 'presence', strength: 'strong'},
+  {from: 11, to: 4, dim: 'public', strength: 'medium'},
+  {from: 11, to: 5, dim: 'adresse', strength: 'weak'},
+  {from: 11, to: 9, dim: 'broadcast', strength: 'medium'},
+  {from: 12, to: 0, dim: 'consultation', strength: 'strong'},
+  {from: 12, to: 2, dim: 'consultation', strength: 'medium'},
+  {from: 13, to: 1, dim: 'presence', strength: 'strong'},
+  {from: 13, to: 8, dim: 'ritualite', strength: 'strong'},
+  {from: 13, to: 5, dim: 'adresse', strength: 'strong'},
+  {from: 13, to: 4, dim: 'public', strength: 'medium'},
+  {from: 13, to: 10, dim: 'public', strength: 'medium'},
+  {from: 13, to: 11, dim: 'broadcast', strength: 'medium'},
+  {from: 13, to: 2, dim: 'trace', strength: 'medium'},
+  {from: 13, to: 10, dim: 'trace', strength: 'medium'},
+];
+
+// Simple pictogram paths. viewBox is 0 0 40 40.
+const icons = {
+  oracle:    `<g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M10 32 Q13 24 10 18 Q7 12 10 8"/><path d="M20 32 Q23 24 20 18 Q17 12 20 8"/><path d="M30 32 Q33 24 30 18 Q27 12 30 8"/></g>`,
+  circle:    `<g fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="20" cy="20" r="12"/><circle cx="20" cy="8" r="2" fill="currentColor"/><circle cx="32" cy="20" r="2" fill="currentColor"/><circle cx="20" cy="32" r="2" fill="currentColor"/><circle cx="8" cy="20" r="2" fill="currentColor"/></g>`,
+  quill:     `<g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M8 32 L28 12"/><path d="M28 12 Q32 8 30 4 Q26 6 22 8 L28 12 Z" fill="currentColor" fill-opacity="0.15"/><line x1="6" y1="34" x2="18" y2="34"/></g>`,
+  book:      `<g fill="none" stroke="currentColor" stroke-width="1.8"><rect x="10" y="6" width="22" height="28" rx="1"/><line x1="14" y1="6" x2="14" y2="34"/><line x1="18" y1="12" x2="28" y2="12"/><line x1="18" y1="18" x2="28" y2="18"/><line x1="18" y1="24" x2="26" y2="24"/></g>`,
+  news:      `<g fill="none" stroke="currentColor" stroke-width="1.8"><rect x="6" y="8" width="28" height="24" rx="1"/><line x1="20" y1="8" x2="20" y2="32"/><line x1="10" y1="14" x2="16" y2="14"/><line x1="10" y1="18" x2="16" y2="18"/><line x1="10" y1="22" x2="16" y2="22"/><line x1="24" y1="14" x2="30" y2="14"/><line x1="24" y1="18" x2="30" y2="18"/><line x1="24" y1="22" x2="30" y2="22"/></g>`,
+  envelope:  `<g fill="none" stroke="currentColor" stroke-width="1.8"><rect x="6" y="10" width="28" height="20" rx="1"/><polyline points="6,10 20,22 34,10"/><path d="M6 30 L18 20 M34 30 L22 20"/></g>`,
+  telegraph: `<g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6,8 14,20 8,22 18,34"/><polyline points="22,8 30,20 24,22 34,34"/></g>`,
+  phone:     `<g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M10 8 Q10 20 20 26 Q30 20 30 8" transform="rotate(-30 20 17)"/><circle cx="10" cy="8" r="3" transform="rotate(-30 20 17)"/><circle cx="30" cy="8" r="3" transform="rotate(-30 20 17)"/></g>`,
+  reel:      `<g fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="20" cy="20" r="14"/><circle cx="20" cy="20" r="3" fill="currentColor"/><circle cx="20" cy="10" r="2"/><circle cx="20" cy="30" r="2"/><circle cx="10" cy="20" r="2"/><circle cx="30" cy="20" r="2"/></g>`,
+  antenna:   `<g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="10" y1="34" x2="20" y2="10"/><line x1="30" y1="34" x2="20" y2="10"/><line x1="6" y1="34" x2="34" y2="34"/><path d="M20 6 Q26 6 28 12"/><path d="M20 6 Q32 6 34 16"/></g>`,
+  link:      `<g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M8 20 A 6 6 0 0 1 20 20 L 22 20"/><path d="M32 20 A 6 6 0 0 1 20 20 L 18 20"/></g>`,
+  feed:      `<g fill="none" stroke="currentColor" stroke-width="1.8"><rect x="8" y="6" width="24" height="6" rx="1"/><rect x="8" y="16" width="24" height="6" rx="1"/><rect x="8" y="26" width="24" height="6" rx="1"/></g>`,
+  bubble:    `<g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M8 10 L32 10 Q34 10 34 12 L34 24 Q34 26 32 26 L18 26 L12 32 L14 26 L8 26 Q6 26 6 24 L6 12 Q6 10 8 10 Z"/><line x1="18" y1="18" x2="18" y2="18" stroke-width="3"/><line x1="22" y1="18" x2="22" y2="18" stroke-width="3"/><line x1="26" y1="18" x2="26" y2="18" stroke-width="3"/></g>`,
+  salon:     `<g fill="none" stroke="currentColor" stroke-width="1.8"><rect x="14" y="16" width="12" height="10" rx="2" fill="currentColor" fill-opacity="0.1"/><circle cx="8" cy="12" r="3"/><circle cx="32" cy="12" r="3"/><circle cx="8" cy="30" r="3"/><circle cx="32" cy="30" r="3"/><circle cx="20" cy="6" r="3"/><circle cx="20" cy="36" r="3"/></g>`,
+};
+
+// State
+const state = {
+  activeDims: new Set(),
+  selectedPhase: null,
+};
+
+// Positions
+function phaseY(n) { return n * PHASE_ROW + PHASE_ROW / 2; }
+function cardY(n) { return phaseY(n) - CARD_H / 2; }
+
+// Layout helper
+function chartWidth() {
+  return document.getElementById('chartInner').clientWidth;
+}
+function ribbonX(dimId) {
+  const idx = dimensions.findIndex(d => d.id === dimId);
+  const w = chartWidth();
+  const totalRibbons = dimensions.length * RIBBON_W + (dimensions.length - 1) * RIBBON_GAP;
+  const rightEdge = w - RIBBON_MARGIN_RIGHT;
+  const leftEdge = rightEdge - totalRibbons;
+  return leftEdge + idx * (RIBBON_W + RIBBON_GAP) + RIBBON_W / 2;
+}
+function arcStartX() { return CARD_MARGIN_LEFT + CARD_W - 4; }
+function arcEndX() { return arcStartX(); }
+function arcBulgeX(dyAbs) {
+  // Bulge proportional to vertical distance, capped by chart width
+  const w = chartWidth();
+  const availableRight = w - RIBBON_MARGIN_RIGHT - dimensions.length * (RIBBON_W + RIBBON_GAP) - 40;
+  const startX = arcStartX();
+  const maxBulge = availableRight - startX;
+  return startX + Math.min(maxBulge, 40 + dyAbs * 0.35);
+}
+
+// Render legend
+function renderLegend() {
+  const legend = document.getElementById('legend');
+  legend.innerHTML = '';
+  dimensions.forEach(d => {
+    const pill = document.createElement('div');
+    pill.className = 'pill';
+    pill.style.setProperty('--sw', d.color);
+    pill.innerHTML = `<span class="swatch"></span>${d.label}`;
+    pill.addEventListener('click', () => toggleDim(d.id));
+    pill.dataset.dim = d.id;
+    legend.appendChild(pill);
+  });
+  const controls = document.createElement('div');
+  controls.className = 'legend-controls';
+  const reset = document.createElement('button');
+  reset.className = 'reset-btn';
+  reset.textContent = 'Réinitialiser';
+  reset.addEventListener('click', resetAll);
+  controls.appendChild(reset);
+  legend.appendChild(controls);
+}
+
+function toggleDim(id) {
+  if (state.activeDims.has(id)) state.activeDims.delete(id);
+  else state.activeDims.add(id);
+  state.selectedPhase = null;
+  applyState();
+}
+function togglePhase(n) {
+  state.selectedPhase = (state.selectedPhase === n) ? null : n;
+  state.activeDims.clear();
+  applyState();
+}
+function resetAll() {
+  state.activeDims.clear();
+  state.selectedPhase = null;
+  applyState();
+}
+
+// Render phase cards
+function renderCards() {
+  const inner = document.getElementById('chartInner');
+  phases.forEach(p => {
+    const el = document.createElement('div');
+    el.className = 'phase';
+    el.style.top = cardY(p.n) + 'px';
+    el.style.left = CARD_MARGIN_LEFT + 'px';
+    el.dataset.n = p.n;
+    el.innerHTML = `
+      <svg class="icon" viewBox="0 0 40 40">${icons[p.icon] || ''}</svg>
+      <div class="txt">
+        <span class="n">Phase ${p.n}</span>
+        <span class="key">${p.key}</span>
+        <span class="dates">${p.dates}</span>
+      </div>`;
+    el.addEventListener('click', () => togglePhase(p.n));
+    inner.appendChild(el);
+  });
+}
+
+// Render SVG (ribbons + arcs)
+function renderCanvas() {
+  const canvas = document.getElementById('canvas');
+  const w = canvas.clientWidth;
+  const h = canvas.clientHeight;
+  canvas.setAttribute('viewBox', `0 0 ${w} ${h}`);
+  canvas.innerHTML = '';
+
+  // Ribbon baselines (full-height thin gray lines)
+  const baselines = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+  baselines.setAttribute('class', 'ribbons-baselines');
+  dimensions.forEach(d => {
+    const x = ribbonX(d.id);
+    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    line.setAttribute('x1', x);
+    line.setAttribute('x2', x);
+    line.setAttribute('y1', 20);
+    line.setAttribute('y2', h - 20);
+    line.setAttribute('stroke', d.color);
+    line.setAttribute('stroke-width', 2);
+    line.setAttribute('class', 'ribbon-baseline default');
+    line.dataset.dim = d.id;
+    baselines.appendChild(line);
+  });
+  canvas.appendChild(baselines);
+
+  // Ribbon active nodes (colored beads)
+  const nodes = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+  nodes.setAttribute('class', 'ribbons-nodes');
+  Object.entries(activity).forEach(([dimId, phaseList]) => {
+    const dim = dimensions.find(d => d.id === dimId);
+    const x = ribbonX(dimId);
+    phaseList.forEach(n => {
+      const bead = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+      bead.setAttribute('x', x - RIBBON_W / 2);
+      bead.setAttribute('y', phaseY(n) - 22);
+      bead.setAttribute('width', RIBBON_W);
+      bead.setAttribute('height', 44);
+      bead.setAttribute('rx', RIBBON_W / 2);
+      bead.setAttribute('fill', dim.color);
+      bead.setAttribute('class', 'ribbon-segment dim default');
+      bead.dataset.dim = dimId;
+      bead.dataset.phase = n;
+      nodes.appendChild(bead);
+    });
+  });
+  canvas.appendChild(nodes);
+
+  // Cut marks
+  const cutsG = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+  cutsG.setAttribute('class', 'cuts');
+  cuts.forEach(c => {
+    const x = ribbonX(c.dim);
+    const t = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    t.setAttribute('x', x);
+    t.setAttribute('y', phaseY(c.phase));
+    t.setAttribute('class', 'cut-mark dim default');
+    t.dataset.dim = c.dim;
+    t.dataset.phase = c.phase;
+    t.textContent = '×';
+    cutsG.appendChild(t);
+  });
+  canvas.appendChild(cutsG);
+
+  // Arcs
+  const arcsG = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+  arcsG.setAttribute('class', 'arcs');
+  arcs.forEach(a => {
+    const dim = dimensions.find(d => d.id === a.dim);
+    const yFrom = phaseY(a.from);
+    const yTo = phaseY(a.to);
+    const dy = Math.abs(yTo - yFrom);
+    const startX = arcStartX();
+    const bulge = arcBulgeX(dy);
+    const midY = (yFrom + yTo) / 2;
+    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute('d', `M ${startX} ${yFrom} C ${bulge} ${yFrom}, ${bulge} ${yTo}, ${startX} ${yTo}`);
+    path.setAttribute('stroke', dim.color);
+    path.setAttribute('fill', 'none');
+    const sw = a.strength === 'strong' ? 2.6 : a.strength === 'medium' ? 1.6 : 1;
+    const op = a.strength === 'strong' ? 0.85 : a.strength === 'medium' ? 0.6 : 0.35;
+    path.setAttribute('stroke-width', sw);
+    path.setAttribute('style', `opacity: ${op}`);
+    path.setAttribute('class', 'arc dim default');
+    path.dataset.dim = a.dim;
+    path.dataset.from = a.from;
+    path.dataset.to = a.to;
+    arcsG.appendChild(path);
+  });
+  canvas.appendChild(arcsG);
+}
+
+// Apply current state (filter classes)
+function applyState() {
+  const hasDimFilter = state.activeDims.size > 0;
+  const hasPhaseFilter = state.selectedPhase !== null;
+
+  // Pills
+  document.querySelectorAll('.pill').forEach(pill => {
+    pill.classList.toggle('active', state.activeDims.has(pill.dataset.dim));
+  });
+  // Phase cards
+  document.querySelectorAll('.phase').forEach(el => {
+    el.classList.toggle('selected', +el.dataset.n === state.selectedPhase);
+  });
+
+  // Arcs
+  document.querySelectorAll('.arc').forEach(el => {
+    let show = true;
+    if (hasDimFilter) show = state.activeDims.has(el.dataset.dim);
+    else if (hasPhaseFilter) show = (+el.dataset.from === state.selectedPhase) || (+el.dataset.to === state.selectedPhase);
+    el.classList.toggle('faded', !show);
+    el.classList.toggle('highlight', show && (hasDimFilter || hasPhaseFilter));
+    el.classList.toggle('default', !hasDimFilter && !hasPhaseFilter);
+  });
+  // Ribbon segments
+  document.querySelectorAll('.ribbon-segment').forEach(el => {
+    let show = true;
+    if (hasDimFilter) show = state.activeDims.has(el.dataset.dim);
+    else if (hasPhaseFilter) show = (+el.dataset.phase === state.selectedPhase);
+    el.classList.toggle('faded', !show);
+    el.classList.toggle('highlight', show && (hasDimFilter || hasPhaseFilter));
+    el.classList.toggle('default', !hasDimFilter && !hasPhaseFilter);
+  });
+  // Baselines
+  document.querySelectorAll('.ribbon-baseline').forEach(el => {
+    let show = true;
+    if (hasDimFilter) show = state.activeDims.has(el.dataset.dim);
+    el.classList.toggle('faded', hasDimFilter && !show);
+    el.classList.toggle('highlight', hasDimFilter && show);
+    el.classList.toggle('default', !hasDimFilter);
+  });
+  // Cuts
+  document.querySelectorAll('.cut-mark').forEach(el => {
+    let show = true;
+    if (hasDimFilter) show = state.activeDims.has(el.dataset.dim);
+    else if (hasPhaseFilter) show = (+el.dataset.phase === state.selectedPhase);
+    el.classList.toggle('faded', !show);
+    el.classList.toggle('highlight', show && (hasDimFilter || hasPhaseFilter));
+    el.classList.toggle('default', !hasDimFilter && !hasPhaseFilter);
+  });
+}
+
+function init() {
+  renderLegend();
+  renderCards();
+  renderCanvas();
+  applyState();
+}
+
+let rerenderTimer;
+window.addEventListener('resize', () => {
+  clearTimeout(rerenderTimer);
+  rerenderTimer = setTimeout(() => { renderCanvas(); applyState(); }, 150);
+});
+
+init();
+</script>
+</body>
+</html>
