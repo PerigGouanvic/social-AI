@@ -75,7 +75,7 @@ function copyBibTeX() {
 // Floating navigation widget
 // - default (near top): dots icon; click opens section menu
 // - after scroll > threshold: arrow icon; click scrolls to top
-(function() {
+document.addEventListener('DOMContentLoaded', function() {
     const SCROLL_THRESHOLD = 400;
     const widget = document.getElementById('nav-widget');
     const toggle = document.getElementById('nav-toggle');
@@ -131,7 +131,7 @@ function copyBibTeX() {
 
     window.addEventListener('scroll', updateMode, { passive: true });
     updateMode();
-})();
+});
 
 // Video carousel autoplay when in view
 function setupVideoCarouselAutoplay() {
