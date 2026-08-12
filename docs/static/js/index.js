@@ -72,23 +72,66 @@ function copyBibTeX() {
     }
 }
 
-// Scroll to top functionality
-function scrollToTop() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-}
+// Floating navigation widget
+// - default (near top): dots icon; click opens section menu
+// - after scroll > threshold: arrow icon; click scrolls to top
+(function() {
+    const SCROLL_THRESHOLD = 400;
+    const widget = document.getElementById('nav-widget');
+    const toggle = document.getElementById('nav-toggle');
+    const menu = document.getElementById('nav-menu');
+    if (!widget || !toggle || !menu) return;
 
-// Show/hide scroll to top button
-window.addEventListener('scroll', function() {
-    const scrollButton = document.querySelector('.scroll-to-top');
-    if (window.pageYOffset > 300) {
-        scrollButton.classList.add('visible');
-    } else {
-        scrollButton.classList.remove('visible');
+    function isScrolled() {
+        return window.pageYOffset > SCROLL_THRESHOLD;
     }
-});
+
+    function updateMode() {
+        if (isScrolled()) {
+            widget.classList.add('scrolled');
+            toggle.setAttribute('aria-label', 'Back to top');
+            menu.classList.remove('open');
+            toggle.setAttribute('aria-expanded', 'false');
+        } else {
+            widget.classList.remove('scrolled');
+            toggle.setAttribute('aria-label', 'Open section navigation');
+        }
+    }
+
+    toggle.addEventListener('click', function(event) {
+        event.stopPropagation();
+        if (isScrolled()) {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+            const isOpen = menu.classList.toggle('open');
+            toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        }
+    });
+
+    document.addEventListener('click', function(event) {
+        if (!widget.contains(event.target)) {
+            menu.classList.remove('open');
+            toggle.setAttribute('aria-expanded', 'false');
+        }
+    });
+
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            menu.classList.remove('open');
+            toggle.setAttribute('aria-expanded', 'false');
+        }
+    });
+
+    menu.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', function() {
+            menu.classList.remove('open');
+            toggle.setAttribute('aria-expanded', 'false');
+        });
+    });
+
+    window.addEventListener('scroll', updateMode, { passive: true });
+    updateMode();
+})();
 
 // Video carousel autoplay when in view
 function setupVideoCarouselAutoplay() {
