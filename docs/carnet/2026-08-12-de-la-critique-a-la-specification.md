@@ -98,20 +98,81 @@ L'idée qu'un LLM puisse « garder les humains dans sa chair » était latente d
 
 ---
 
-## Ce que la recherche a rapporté (12 août 2026)
+## Le champ existant — cartographie détaillée
 
-Recherche web approfondie sur les personnes travaillant à une *hard-coded human recognition capability* dans les LLM. Trois constats :
+Recherche web approfondie sur les personnes travaillant à une *hard-coded human recognition capability* dans les LLM. Le champ existe, fragmenté en **quatre registres** qui ne se parlent presque pas.
 
-**1. Le champ existe, fragmenté en trois camps.**
-- **Architectural** (petit, technique, actif) : Khalifa (source-aware training, COLM 2024), Huang & Chen (Cite Pretrain, 2025), Zhang (Verifiable by Design / Quote-Tuning, NAACL 2025), Liu & Min (OLMoTrace + infini-gram, Ai2, ACL 2025), Min (SILO, ICLR 2024). Ils construisent.
-- **Théorique** : Ilyas & Madry (datamodels), Grosse chez Anthropic (influence functions à l'échelle). Puissant conceptuellement, coûteux, post-hoc, non déployé en interface utilisateur.
-- **Humaniste / gouvernance** (nombreux, langage économique) : Data Provenance Initiative (Longpre), Lanier & Weyl (Data Dignity), Pleias / Common Corpus (Langlais, francophone), DAIR (Gebru), Bender, Broussard, Crawford. Puissants pour nommer le problème, alliés politiques, non-interlocuteurs techniques.
+### Registre architectural — le plus proche du projet
 
-**2. L'infrastructure technique existe** pour rendre la thèse non-délirante. **OLMoTrace** (Ai2) est le précédent le plus proche : n'importe quelle réponse d'OLMo tracée en 4,5 secondes vers les documents exacts de son corpus de 4,6 T tokens. Déployé, gratuit, open-source, en production.
+Ceux qui *construisent* une capacité intrinsèque d'attribution dans les LLM. Petit, technique, actif. Vocabulaire : *intrinsic citation, verifiable by design, provenance layer, nonparametric datastore, source-aware training*.
 
-**3. Le vide est réel et précis.** Personne ne relie l'output d'un LLM à un *humain vivant identifié et joignable*. Toutes les techniques existantes s'arrêtent au document ou au chunk. Aucun projet ne conceptualise le LLM comme *annuaire dynamique d'humains organisés par proximité conceptuelle*. Aucun projet mainstream ne parle de *restitution* ou *réparation* comme principe de design (l'un fait de l'extraction assumée, l'autre de la compensation ex post).
+- **Muhammad Khalifa** (UMich) — *Source-Aware Training Enables Knowledge Attribution in Language Models*, COLM 2024. [arXiv 2404.01019](https://arxiv.org/abs/2404.01019) · [code](https://github.com/mukhal/intrinsic-source-citation). Injecte des IDs de documents pendant le pré-entraînement, apprend au modèle à citer par ID. **Prototype le plus littéralement « hard-coded »** — mais s'arrête au niveau document.
+- **Yukun Huang, Sanxing Chen** et coll. — *Cite Pretrain: Retrieval-Free Knowledge Attribution*, 2025. [arXiv 2506.17585](https://arxiv.org/abs/2506.17585). Prolongement de Khalifa avec « Active Indexing », +30 % de précision.
+- **Jingyu Zhang** et coll. — *Verifiable by Design: Aligning Language Models to Quote from Pre-Training Data*, NAACL 2025. [arXiv 2404.03862](https://arxiv.org/abs/2404.03862). *Quote-Tuning* : la citation verbatim comme objectif d'alignement (+130 %). Utile pour penser comment un mandat de restitution pourrait être injecté dans le training même.
+- **Jiacheng Liu, Sewon Min** et Allen Institute for AI — **OLMoTrace** (ACL 2025) et **infini-gram** (2024). [arXiv 2504.07096](https://arxiv.org/abs/2504.07096) · [blog Ai2](https://allenai.org/blog/olmotrace). **Le projet le plus proche du nôtre**. N'importe quelle réponse d'OLMo tracée en 4,5 secondes vers les documents exacts de son corpus de 4,6 T tokens. Déployé, gratuit, open-source, en production sur l'Ai2 Playground. **Précédent architectural réel** : la trace vers la source n'est plus une utopie, elle tourne.
+- **Sewon Min** et coll. — **SILO Language Models**, ICLR 2024. [arXiv 2308.04430](https://arxiv.org/abs/2308.04430). Sépare paramétrique (public domain uniquement) / non-paramétrique (datastore consultable) ; attribution niveau phrase native + opt-out post-hoc granulaire. Modèle mental très proche de la thèse.
 
-**La formulation exacte proposée ici — reconnexion vivant-vivant via le LLM, restitution comme principe architectural — n'a pas de porte-parole nommé.** Le pont conceptuel entre l'archive vivante et l'architecture LLM reste à faire.
+### Registre théorique
+
+Puissant conceptuellement, coûteux, post-hoc, pas encore déployé en interface utilisateur. Fournit la théorie de fond pour dire *quels documents ont produit telle réponse*.
+
+- **Andrew Ilyas, Sung Min Park, Logan Engstrom, Aleksander Madry** (MIT) — **Datamodels**, ICML 2022. Framework pour prédire l'output d'un modèle à partir de sous-ensembles de son training set.
+- **Roger Grosse** et coll. (Anthropic) — Influence functions à l'échelle LLM via EK-FAC. Follow-ups 2024–2026 : TrackStar, LoGra, TDA at pretraining scale.
+- Survey de référence : Zhang et al., « Attribution, Citation, and Quotation », ACL 2025, [arXiv 2508.15396](https://arxiv.org/abs/2508.15396) — cartographie complète du champ.
+
+### Registre humaniste / gouvernance — langage économique dominant
+
+Nombreux, visibles, bien connectés. Nomment le problème dans un vocabulaire de *droits, dignité, compensation*. Alliés politiques possibles ; interlocuteurs techniques limités.
+
+- **Data Provenance Initiative** — Shayne Longpre (MIT, passé à Anthropic en 2026). [shaynelongpre.com](https://www.shaynelongpre.com/). Audite licences, lignée, conditions d'usage. Registre gouvernance, pas architecture.
+- **Jaron Lanier & Glen Weyl** — *Data Dignity*. Conférence Lanier UC Berkeley 2025, « Data Dignity and the Inversion of AI » : utilise explicitement l'image *figure/ground inversion* — miroir presque parfait de la thèse ici. [Berkeley video](https://cdss.berkeley.edu/video/data-dignity-and-inversion-ai-jaron-lanier). **Rare cas où quelqu'un tient le registre architectural en même temps que l'économique.**
+- **Amelie Wührl, Kyle Lo, Anna Rogers** — *A Human-Centric Framework for Data Attribution in LLMs*, FAccT 2026. [arXiv 2602.10995](https://arxiv.org/abs/2602.10995) · [ACM](https://dl.acm.org/doi/10.1145/3805689.3812236). Tente explicitement le pont NLP / stakeholders humains.
+- **Pierre-Carl Langlais** et coll., **Pleias / Common Corpus** (Paris) — [arXiv 2506.01732](https://arxiv.org/abs/2506.01732). Pré-entraînement 100 % domaine public + licences permissives (2 T tokens, 30+ langues, forte présence francophone). Modèles Pleias 1.0 (350M–3B). **Seul projet francophone qui traite le corpus comme enjeu de conception**, pas comme rustine.
+- *Human-Provenance Verification as Labor Infrastructure* — [arXiv 2605.03210](https://arxiv.org/pdf/2605.03210). Registre labor.
+- *DebugLM: Traceable Training Data Provenance* — [arXiv 2603.17884](https://arxiv.org/pdf/2603.17884). Traçabilité training-data.
+- **Anthropic Citations API** — [claude.com/blog/introducing-citations-api](https://claude.com/blog/introducing-citations-api). *Attention* : citations pour RAG, pas pour training data. À ne pas confondre.
+
+### Registre défensif
+
+Alliés naturels, mais registre différent — l'obstruction, pas la reconnexion.
+
+- **Ben Zhao** (UChicago) — Nightshade / Glaze. [MIT Tech Review, 11/2024](https://www.technologyreview.com/2024/11/13/1106837/ai-data-posioning-nightshade-glaze-art-university-of-chicago-exploitation/). Empoisonnement adversarial du training data pour protéger les artistes.
+
+### Registre critique-descriptif
+
+Ceux qui *décrivent* le problème (extraction, biais, ontologie de la donnée). Alliés politiques majeurs, pas interlocuteurs techniques.
+
+- **DAIR** (Timnit Gebru), **Emily Bender**, **Meredith Broussard**, **Kate Crawford**.
+
+---
+
+## Ce qui existe déjà techniquement (avant d'ajouter la couche vivant-vivant)
+
+- **Attribution intrinsèque au niveau document** : Khalifa. Prototype validé, limites connues.
+- **Attribution intrinsèque au niveau chunk / passage** : OLMoTrace. Déployé, rapide, open-source.
+- **Citation verbatim comme objectif d'alignement** : Zhang.
+- **Séparation paramétrique / non-paramétrique avec opt-out** : SILO.
+- **Corpus consenti à grande échelle** : Common Corpus / Pleias.
+- **Théorie de l'influence** (quels docs ont produit telle réponse) : datamodels (Ilyas/Madry), influence functions (Grosse).
+
+**Ce qui n'existe pas et que le projet propose** :
+
+- Reliure de l'output d'un LLM à un *humain vivant identifié et joignable*. Toutes les techniques existantes s'arrêtent au document ou au chunk.
+- Conceptualisation du LLM comme *annuaire dynamique d'humains organisés par proximité conceptuelle*.
+- *Restitution* / *réparation* comme principe architectural nommé (les uns font de l'extraction assumée, les autres de la compensation ex post).
+- Dimension conversationnelle vivante — le LLM comme messager, pas oracle final.
+- Vocabulaire « chaînes de convergence humaine et d'archive coupées » (thèse McLuhanienne). Absent de la littérature technique.
+
+**La formulation exacte proposée ici — reconnexion vivant-vivant via le LLM, restitution comme principe architectural — n'a pas de porte-parole nommé.**
+
+---
+
+## Deux personnes seulement s'approchent réellement du pont architecture-humain
+
+- **Jiacheng Liu** — côté outil concret (OLMoTrace).
+- **Jaron Lanier** — côté vision (inversion figure/fond).
+
+Aucun ne fait *exactement* ce que le projet propose. **Le vide entre eux est la place du projet.**
 
 ---
 
@@ -119,20 +180,56 @@ Recherche web approfondie sur les personnes travaillant à une *hard-coded human
 
 Par ordre de priorité stratégique.
 
-1. **OLMoTrace** — [arXiv 2504.07096](https://arxiv.org/abs/2504.07096), [blog Ai2](https://allenai.org/blog/olmotrace). Le précédent architectural le plus proche. À lire pour connaître exactement ce qui est *déjà possible* avant d'ajouter la couche vivant-vivant.
-2. **Source-Aware Training** — Khalifa et al., COLM 2024, [arXiv 2404.01019](https://arxiv.org/abs/2404.01019). Prototype le plus littéralement « hard-coded » d'attribution intrinsèque. Comprendre les limites au niveau document et voir ce qu'il faudrait pour aller jusqu'au vivant.
+1. **OLMoTrace** — [arXiv 2504.07096](https://arxiv.org/abs/2504.07096) · [blog Ai2](https://allenai.org/blog/olmotrace). Le précédent architectural le plus proche. À lire pour connaître exactement ce qui est *déjà possible* avant d'ajouter la couche vivant-vivant.
+2. **Source-Aware Training** — Khalifa et al., COLM 2024, [arXiv 2404.01019](https://arxiv.org/abs/2404.01019) · [code](https://github.com/mukhal/intrinsic-source-citation). Prototype le plus littéralement « hard-coded » d'attribution intrinsèque. Comprendre les limites au niveau document et voir ce qu'il faudrait pour aller jusqu'au vivant.
 3. **Verifiable by Design / Quote-Tuning** — Zhang et al., NAACL 2025, [arXiv 2404.03862](https://arxiv.org/abs/2404.03862). L'attribution comme objectif d'alignement — utile pour penser comment un mandat de restitution pourrait être injecté dans le training même.
 4. **SILO Language Models** — Min et al., ICLR 2024, [arXiv 2308.04430](https://arxiv.org/abs/2308.04430). Architecture qui sépare paramétrique (public domain) / non-paramétrique (datastore consultable) et rend l'opt-out granulaire. Modèle mental très proche de la thèse.
-5. **Data Dignity and the Inversion of AI** — conférence Lanier UC Berkeley 2025. Pour la métaphore *figure/ground inversion* — miroir presque parfait de la thèse ici. Écouter en entier.
+5. **Data Dignity and the Inversion of AI** — [conférence Lanier UC Berkeley 2025](https://cdss.berkeley.edu/video/data-dignity-and-inversion-ai-jaron-lanier). Pour la métaphore *figure/ground inversion* — miroir presque parfait de la thèse ici. Écouter en entier.
 6. **Common Corpus / Pleias** — Langlais et coll., Paris, [arXiv 2506.01732](https://arxiv.org/abs/2506.01732). Interlocuteur francophone naturel ; corpus pré-nettoyé consenti, modèles Pleias 1.0. Partage la conviction que l'éthique doit être *dans le corpus, pas dans le patch*.
-7. **Survey** — Zhang et al., « Attribution, Citation, and Quotation », [arXiv 2508.15396](https://arxiv.org/abs/2508.15396). Cartographie complète du champ pour situer précisément où va la nouvelle contribution.
+7. **Survey** — Zhang et al., « Attribution, Citation, and Quotation », ACL 2025, [arXiv 2508.15396](https://arxiv.org/abs/2508.15396). Cartographie complète du champ pour situer précisément où va la nouvelle contribution.
+8. **Cite Pretrain** — Huang & Chen, 2025, [arXiv 2506.17585](https://arxiv.org/abs/2506.17585). Prolongement direct de Khalifa avec Active Indexing.
+9. **A Human-Centric Framework for Data Attribution in LLMs** — Wührl, Lo, Rogers, FAccT 2026, [arXiv 2602.10995](https://arxiv.org/abs/2602.10995). Pont NLP-gouvernance, à évaluer pour voir jusqu'où il pousse.
 
-Contacts à envisager, par proximité décroissante :
-- **Jiacheng Liu** (Ai2, OLMoTrace) — le plus proche architecturalement, motivation explicitement centrée sur l'utilisateur qui veut comprendre ce que le modèle a lu.
-- **Jaron Lanier** — pour la vision (inversion figure/fond). Peu accessible.
-- **Pierre-Carl Langlais / Pleias** (Paris) — pont francophone naturel.
-- **Sewon Min**, **Muhammad Khalifa** — pour l'architecture technique.
-- **Ben Zhao** (Nightshade / Glaze) — allié politique évident, même si son travail est défensif.
+---
+
+## Contacts stratégiques, par proximité décroissante
+
+1. **Jiacheng Liu** (Ai2, OLMoTrace). Vivant, actif, code ouvert, motivation explicitement centrée sur *l'utilisateur qui veut comprendre ce que le modèle a lu*. **Contact le plus stratégique.**
+2. **Sewon Min** (UW / Ai2). Co-auteure SILO + infini-gram. Défend explicitement les architectures qui préservent l'agentivité des data producers.
+3. **Muhammad Khalifa** (UMich). Peut expliquer limites concrètes de l'attribution intrinsèque au niveau document.
+4. **Shayne Longpre** (Anthropic depuis 2026). Passage industriel — pont ou mur, à évaluer.
+5. **Jaron Lanier**. Peu accessible en direct, mais sa conférence Berkeley 2025 est à écouter en entier ; l'image *figure/ground inversion* est déjà à moitié la nôtre.
+6. **Pierre-Carl Langlais / Pleias** (Paris). Francophone, actif sur Hugging Face. Interlocuteur naturel en français.
+7. **Andrew Ilyas** (MIT) et **Roger Grosse** (Anthropic). Pour la profondeur théorique (datamodels, influence functions).
+8. **Amelie Wührl / Kyle Lo / Anna Rogers**. Font le pont NLP-gouvernance, mais restent dans « data economy ».
+9. **Ben Zhao**. Allié politique évident, registre défensif à articuler avec le nôtre.
+10. **Emily Bender**. Voix critique majeure, peut relayer politiquement.
+
+---
+
+## Sources principales (liens directs)
+
+**Registre architectural**
+- [OLMoTrace — arXiv 2504.07096](https://arxiv.org/abs/2504.07096) · [blog Ai2](https://allenai.org/blog/olmotrace)
+- [Source-Aware Training — arXiv 2404.01019](https://arxiv.org/abs/2404.01019) · [code GitHub](https://github.com/mukhal/intrinsic-source-citation)
+- [Cite Pretrain — arXiv 2506.17585](https://arxiv.org/abs/2506.17585)
+- [Verifiable by Design — arXiv 2404.03862](https://arxiv.org/abs/2404.03862)
+- [SILO Language Models — arXiv 2308.04430](https://arxiv.org/abs/2308.04430)
+- [Common Corpus / Pleias — arXiv 2506.01732](https://arxiv.org/abs/2506.01732)
+- [Anthropic Citations API — RAG, pas training data](https://claude.com/blog/introducing-citations-api)
+
+**Survey**
+- [Attribution, Citation, and Quotation — arXiv 2508.15396](https://arxiv.org/abs/2508.15396)
+
+**Registre humaniste / gouvernance**
+- [Data Provenance Initiative — Shayne Longpre](https://www.shaynelongpre.com/)
+- [Data Dignity and the Inversion of AI — Lanier, UC Berkeley 2025](https://cdss.berkeley.edu/video/data-dignity-and-inversion-ai-jaron-lanier)
+- [A Human-Centric Framework for Data Attribution — arXiv 2602.10995](https://arxiv.org/abs/2602.10995) · [ACM/FAccT 2026](https://dl.acm.org/doi/10.1145/3805689.3812236)
+- [Human-Provenance Verification as Labor Infrastructure — arXiv 2605.03210](https://arxiv.org/pdf/2605.03210)
+- [DebugLM: Traceable Training Data Provenance — arXiv 2603.17884](https://arxiv.org/pdf/2603.17884)
+
+**Registre défensif**
+- [Nightshade / Ben Zhao — MIT Tech Review](https://www.technologyreview.com/2024/11/13/1106837/ai-data-posioning-nightshade-glaze-art-university-of-chicago-exploitation/)
 
 ---
 
