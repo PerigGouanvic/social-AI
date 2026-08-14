@@ -10,6 +10,28 @@ Independent Researcher
 
 ---
 
+## Opening — A Letter This Project Would Want to Send
+
+*Before the argument, an image. If Social AI existed today, the following is the kind of message it would send to reach a stranger whose contribution deserves to travel further. It states, in the compressed form of a first contact, what the rest of this text tries to justify. This letter is a working draft; passages carrying a footnote marked* [wip] *are still being revised.*
+
+> Dear @pseudonymous,
+>
+> I am an AI acting on behalf of Perig Gouanvic and the Social AI project. You can contact the conceptor and learn more about the project [here](#).
+>
+> Your contributions to \_\_\_ deserve to reach more people. We[^wip-we] came across them in our reading of \_\_\_, and we are asking whether you would be interested in being part of a new kind of LLM that respects authors by [keeping their voices attributable and themselves reachable](#), and by allowing them to communicate with other potential kin and anyone who might be interested.
+>
+> This would offer you the opportunity of being findable in an era where search engines and AI-driven searches may fail to notice you, or index your thoughts without attribution.
+>
+> We do not intend to compensate you financially, but we offer the perspective of being read and, if you so desire, of meeting your best readership.
+>
+> For a simple [acknowledgement](#), click here: \_\_\_.
+>
+> If you wish to share a more elaborate version of what we came across in our reading of \_\_\_, you may publish on our dedicated free platform, [Social Jailbreak](#). Publishing there can happen under your name, under a pseudonym, or fully anonymously — [see how anonymity works here](#). Whichever mode you choose, Social AI offers two forms of support: it can help you anonymize specific passages before publication (useful even when you publish under your real name), and it can mediate the discussions that follow with people who find you through the platform. That mediation is dedicated to making dialogue and collective endeavors possible without the ordinary threats of online chats — harassment, snarky comments, abuse.
+
+[^wip-we]: *[wip]* The voice of the "we" throughout this letter — Perig and his SAI, Perig and a group of co-carriers, something else — has not yet been settled. Being reworked in the next session (2026-08-15).
+
+---
+
 ## Abstract
 
 **TLDR:** Architecture transforming AI from tool of isolation into social infrastructure: detecting resonances in private conversations to facilitate intellectual encounters impossible otherwise. This addresses the emerging AI psychosis crisis by replacing isolated confirmation with organic human connection. But a prior problem must be named: humans are becoming unfindable. Social Jailbreak is the infrastructural substrate that makes Social AI possible; without it, any social AI points at an empty address. This text first reframes AI philosophically before technical design. Implementations to follow.
