@@ -10,7 +10,7 @@ Independent Researcher
 
 ---
 
-## Opening — A Letter This Project Would Want to Send
+## Opening: A Letter This Project Would Want to Send
 
 *Before the argument, an image. If Social AI existed today, the following is the kind of message it would send to reach a stranger whose contribution deserves to travel further. It states, in the compressed form of a first contact, what the rest of this text tries to justify. This letter is a working draft; passages carrying a footnote marked* [wip] *are still being revised.*
 
@@ -26,9 +26,9 @@ Independent Researcher
 >
 > For a simple [acknowledgement](#), click here: \_\_\_.
 >
-> If you wish to share a more elaborate version of what we came across in our reading of \_\_\_, you may publish on our dedicated free platform, [Social Jailbreak](#). Publishing there can happen under your name, under a pseudonym, or fully anonymously — [see how anonymity works here](#). Whichever mode you choose, Social AI offers two forms of support: it can help you anonymize specific passages before publication (useful even when you publish under your real name), and it can mediate the discussions that follow with people who find you through the platform. That mediation is dedicated to making dialogue and collective endeavors possible without the ordinary threats of online chats — harassment, snarky comments, abuse.
+> If you wish to share a more elaborate version of what we came across in our reading of \_\_\_, you may publish on our dedicated free platform, [Social Jailbreak](#). Publishing there can happen under your name, under a pseudonym, or fully anonymously (see [how anonymity works here](#)). Whichever mode you choose, Social AI offers two forms of support: it can help you anonymize specific passages before publication (useful even when you publish under your real name), and it can mediate the discussions that follow with people who find you through the platform. That mediation is dedicated to making dialogue and collective endeavors possible without the ordinary threats of online chats: harassment, snarky comments, abuse.
 
-[^wip-we]: *[wip]* The voice of the "we" throughout this letter — Perig and his SAI, Perig and a group of co-carriers, something else — has not yet been settled. Being reworked in the next session (2026-08-15).
+[^wip-we]: *[wip]* The voice of the "we" throughout this letter (Perig and his SAI, Perig and a group of co-carriers, or something else) has not yet been settled. Being reworked in the next session (2026-08-15).
 
 ---
 
